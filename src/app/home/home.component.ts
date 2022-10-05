@@ -30,9 +30,13 @@ export class HomeComponent implements OnInit {
 
   public deleteStory(story: Story) {
     // TOOD delete from the db as well.
+    // Make a modal appear too to confirm
     console.log("Deleting story");
     const indexOfStory = this.yourStories.indexOf(story);
-    console.log(indexOfStory);
+    if (indexOfStory > -1) { // only splice array when item is found
+      this.yourStories.splice(indexOfStory, 1); // 2nd parameter means remove one item only
+    }
+    console.log(this.yourStories);
   }
 
   public editStory(story: Story) {
