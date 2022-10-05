@@ -1,1 +1,12 @@
-<app-story-card></app-story-card>
+<h1>Your Stories</h1> 
+
+<div *ngIf="yourStories.length > 0">
+    <app-story-card></app-story-card>
+</div>
+
+<div *ngIf="yourStories.length < 1">
+    <p>You do not have any stories. Click the button below to get started.</p>
+</div>
+
+<button type="button" class="btn btn-primary">Create New Story</button>
+

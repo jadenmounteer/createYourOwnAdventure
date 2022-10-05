@@ -1,5 +1,5 @@
 /* Reset the margin and padding of everything so we can get rid of the white border that the browser gives us by default*/
-  
+
 // Breakpoints
 $break-large: 1700px;
 $break-medium: 950px;
@@ -22,6 +22,9 @@ $break-small: 510px;
         @media ($break) { @content; } 
     }
 }
+
+$spacing: 50px;
+
 
 
 
