@@ -12,6 +12,20 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // Add stories
+    const newStory: Story = {
+      name: "A tale of two cities",
+      description: "A story by Charles Dickens"
+    };
+
+    const anotherStory: Story = {
+      name: "Twenty Thousand Leagues Under the Sea",
+      description: "Follow the adventures of Cpt. Nemo under the sea."
+    };
+
+    this.yourStories.push(newStory);
+    this.yourStories.push(anotherStory);
+
   }
 
 }
