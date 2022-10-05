@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalComponent } from '../modal/modal.component';
 import { Story } from '../types/story.type';
+
+
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,9 @@ import { Story } from '../types/story.type';
 })
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
+  closeResult: string | undefined;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     // Add stories
@@ -35,6 +37,8 @@ export class HomeComponent implements OnInit {
     console.log("Deleting story");
 
     // Open the confirm modal
+    
+    
 
 
     const indexOfStory = this.yourStories.indexOf(story);
@@ -56,5 +60,13 @@ export class HomeComponent implements OnInit {
     const indexOfStory = this.yourStories.indexOf(story);
     console.log(indexOfStory);
   }
+
+  // open(content: any) {
+  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //     this.closeResult = `Closed with: ${result}`;
+  //   }, (reason) => {
+  //     console.log(reason);
+  //   });
+  // }
 
 }
