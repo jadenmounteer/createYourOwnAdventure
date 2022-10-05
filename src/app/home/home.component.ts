@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalComponent } from '../modal/modal.component';
 import { Story } from '../types/story.type';
 
 @Component({
@@ -32,11 +33,14 @@ export class HomeComponent implements OnInit {
     // TOOD delete from the db as well.
     // Make a modal appear too to confirm
     console.log("Deleting story");
+
+    // Open the confirm modal
+
+
     const indexOfStory = this.yourStories.indexOf(story);
     if (indexOfStory > -1) { // only splice array when item is found
       this.yourStories.splice(indexOfStory, 1); // 2nd parameter means remove one item only
     }
-    console.log(this.yourStories);
   }
 
   public editStory(story: Story) {
