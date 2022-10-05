@@ -1,0 +1,28 @@
+/* Reset the margin and padding of everything so we can get rid of the white border that the browser gives us by default*/
+  
+// Breakpoints
+$break-large: 1700px;
+$break-medium: 950px;
+$break-small: 510px;
+
+/**
+ Screen-size mixins
+*/
+@mixin breakpoint($break) {
+    @if $break == large {
+        @media (min-width: $break-large) { @content; }
+    }
+    @else if $break == medium {
+      @media (min-width: $break-medium) { @content; }
+  }
+    @else if $break == small {
+      @media (max-width: $break-small) { @content; }
+    }
+    @else {
+        @media ($break) { @content; } 
+    }
+}
+
+
+
+

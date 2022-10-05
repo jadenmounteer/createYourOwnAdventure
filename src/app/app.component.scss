@@ -1,0 +1,14 @@
+@import "./scss/main.scss";
+
+.page-wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-left: 15px;
+    margin-right: 15px;
+    
+    
+    @include breakpoint(medium) {
+        margin-left: 105px;
+        margin-right: 105px;
+    }
+}
