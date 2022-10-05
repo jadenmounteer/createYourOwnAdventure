@@ -2,7 +2,7 @@
 
 <div *ngIf="yourStories.length > 0">
     <div *ngFor="let story of yourStories">
-        <app-story-card [story]="story"></app-story-card>
+        <app-story-card [story]="story" (deleteStory)="deleteStory(story)" (editStory)="editStory(story)" (readStory)="readStory(story)"></app-story-card>
     </div>
 </div>
 

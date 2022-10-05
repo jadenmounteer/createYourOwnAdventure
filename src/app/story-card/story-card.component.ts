@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Story } from '../types/story.type';
 
 @Component({
@@ -9,6 +9,9 @@ import { Story } from '../types/story.type';
 export class StoryCardComponent implements OnInit {
   @Input()
   story!: Story;
+  @Output() deleteStory = new EventEmitter();
+  @Output() editStory = new EventEmitter();
+  @Output() readStory = new EventEmitter();
 
   constructor() {
    }
@@ -16,5 +19,6 @@ export class StoryCardComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.story);
   }
+
 
 }

@@ -28,4 +28,25 @@ export class HomeComponent implements OnInit {
 
   }
 
+  public deleteStory(story: Story) {
+    // TOOD delete from the db as well.
+    console.log("Deleting story");
+    const indexOfStory = this.yourStories.indexOf(story);
+    console.log(indexOfStory);
+  }
+
+  public editStory(story: Story) {
+    // TOOD finish this method
+    console.log("Editing story");
+    const indexOfStory = this.yourStories.indexOf(story);
+    console.log(indexOfStory);
+  }
+
+  public readStory(story: Story) {
+    // TODO finish this method
+    console.log("Reading story");
+    const indexOfStory = this.yourStories.indexOf(story);
+    console.log(indexOfStory);
+  }
+
 }
