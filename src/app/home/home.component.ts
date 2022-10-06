@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   closeResult: string | undefined;
   @ViewChild('confirmModal') confirmModal!: ConfirmModalComponent;
   public storyToDelete!: Story;
+  public confirmModalMessage: string = "";
 
   constructor() {}
 
@@ -34,10 +35,9 @@ export class HomeComponent implements OnInit {
 
   }
 
-  public deleteStory(story: Story) {
-    // TOOD delete from the db as well.
-    // Make a modal appear too to confirm
+  public onDeleteStory(story: Story) {
     this.storyToDelete = story;
+    this.confirmModalMessage = `Are you sure you want to delete ${story.name}?`;
     this.confirmModal.open();
   }
 
@@ -49,8 +49,8 @@ export class HomeComponent implements OnInit {
   }
 
   confirmedDelete() {
-    console.log("Confirmed delete");
-    
+    // TOOD delete from the db as well.
+    // Make a modal appear too to confirm
     const indexOfStory = this.yourStories.indexOf(this.storyToDelete);
     if (indexOfStory > -1) { // only splice array when item is found
       this.yourStories.splice(indexOfStory, 1); // 2nd parameter means remove one item only

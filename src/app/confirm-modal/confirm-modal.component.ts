@@ -9,6 +9,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ConfirmModalComponent implements OnInit {
   closeResult = '';
   @Input() message!: string;
+  @Input() title!: string;
   @ViewChild('content') content!: any;
   @Output() confirmed = new EventEmitter();
 

@@ -13,9 +13,4 @@ export class AppComponent {
 
   constructor() {}
 
-
-  // public confirmDeleteStory() {
-  //   this.confirmModal.open();
-  // }
-
 }
