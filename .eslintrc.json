@@ -24,10 +24,7 @@
           {
             "type": "attribute",
             "prefix": "app",
-            "style": "camelCase",
-            "no-console": 1,
-            "no-alert": 1,
-            "no-warning-comments": 1
+            "style": "camelCase"
           }
         ],
         "@angular-eslint/component-selector": [
@@ -37,7 +34,10 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-console": 1,
+        "no-alert": 1,
+        "no-warning-comments": 1
       }
     },
     {
