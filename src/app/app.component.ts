@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ModalComponent } from './modal/modal.component';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { ModalComponent } from './modal/modal.component';
 export class AppComponent {
   title = 'createYourOwnAdventure';
   closeResult: string | undefined;
-  @ViewChild('confirmModal') confirmModal!: ModalComponent;
+  @ViewChild('confirmModal') confirmModal!: ConfirmModalComponent;
 
   constructor() {}
 

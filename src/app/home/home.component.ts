@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { ModalComponent } from '../modal/modal.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { Story } from '../types/story.type';
 
 
@@ -12,7 +12,7 @@ import { Story } from '../types/story.type';
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
   closeResult: string | undefined;
-  @Input() confirmModal!: ModalComponent;
+  @Input() confirmModal!: ConfirmModalComponent;
 
   
 

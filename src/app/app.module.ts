@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { StoryCardComponent } from './story-card/story-card.component';
 import { ModalComponent } from './modal/modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NavComponent,
     HomeComponent,
     StoryCardComponent,
-    ModalComponent
+    ModalComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
