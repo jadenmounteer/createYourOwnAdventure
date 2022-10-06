@@ -1,0 +1,7 @@
+@import '../scss/main.scss';
+
+.story-grid {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}

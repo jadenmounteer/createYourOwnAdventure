@@ -1,16 +1,27 @@
-<app-confirm-modal #confirmModal title="Confirm Delete" [message]="confirmModalMessage" (confirmed)="confirmedDelete()"></app-confirm-modal>
+<app-confirm-modal
+  #confirmModal
+  title="Confirm Delete"
+  [message]="confirmModalMessage"
+  (confirmed)="confirmedDelete()"
+></app-confirm-modal>
 
-<h1>Your Stories</h1> 
+<h1>Your Stories</h1>
 
 <div *ngIf="yourStories.length > 0">
+  <div class="story-grid">
     <div *ngFor="let story of yourStories">
-        <app-story-card [story]="story" (deleteStory)="onDeleteStory(story)" (editStory)="editStory(story)" (readStory)="readStory(story)"></app-story-card>
+      <app-story-card
+        [story]="story"
+        (deleteStory)="onDeleteStory(story)"
+        (editStory)="editStory(story)"
+        (readStory)="readStory(story)"
+      ></app-story-card>
     </div>
+  </div>
 </div>
 
 <div *ngIf="yourStories.length < 1">
-    <p>You do not have any stories. Click the button below to get started.</p>
+  <p>You do not have any stories. Click the button below to get started.</p>
 </div>
 
 <button type="button" class="btn btn-primary">Create New Story &plus;</button>
-
