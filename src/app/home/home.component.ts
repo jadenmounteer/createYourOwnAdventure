@@ -19,17 +19,37 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // Add stories
     const newStory: Story = {
-      name: 'A tale of two cities',
-      description: 'A story by Charles Dickens',
+      name: 'Journy Under the Sea',
+      description:
+        'Jouney under the sea in this thrilling choose your own adventure book.',
     };
 
     const anotherStory: Story = {
-      name: 'Twenty Thousand Leagues Under the Sea',
-      description: 'Follow the adventures of Cpt. Nemo under the sea.',
+      name: 'The Abominable Snowman',
+      description:
+        'Test yourself in this adventure with the abominable snowman.',
+    };
+
+    const yetAnotherStory: Story = {
+      name: 'Space And Beyond',
+      description: 'Where will you go in Space and Beyond?',
+    };
+
+    const yesAnotherStory: Story = {
+      name: 'The Mystery of the Maya',
+      description: 'Discover the mysteries of this ancient people.',
+    };
+
+    const youGuessedIt: Story = {
+      name: 'The Cave of Time',
+      description: 'Journey back in time.',
     };
 
     this.yourStories.push(newStory);
     this.yourStories.push(anotherStory);
+    this.yourStories.push(yetAnotherStory);
+    this.yourStories.push(yesAnotherStory);
+    this.yourStories.push(youGuessedIt);
   }
 
   public onDeleteStory(story: Story) {
