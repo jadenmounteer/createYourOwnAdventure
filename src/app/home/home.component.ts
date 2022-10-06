@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { ModalComponent } from '../modal/modal.component';
 import { Story } from '../types/story.type';
 
 
@@ -11,7 +12,8 @@ import { Story } from '../types/story.type';
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
   closeResult: string | undefined;
-  @Output() confirmDeleteStory = new EventEmitter();
+  @Input() confirmModal!: ModalComponent;
+
   
 
   constructor() {}
@@ -36,10 +38,8 @@ export class HomeComponent implements OnInit {
   public deleteStory(story: Story) {
     // TOOD delete from the db as well.
     // Make a modal appear too to confirm
-    console.log("Deleting story");
 
-    // Open the confirm modal
-    this.confirmDeleteStory.emit();
+    this.confirmModal.open();
     
 
 
