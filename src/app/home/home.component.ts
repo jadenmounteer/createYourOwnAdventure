@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { Story } from '../types/story.type';
 
@@ -12,9 +12,8 @@ import { Story } from '../types/story.type';
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
   closeResult: string | undefined;
-  @Input() confirmModal!: ConfirmModalComponent;
-
-  
+  @ViewChild('confirmModal') confirmModal!: ConfirmModalComponent;
+  public storyToDelete!: Story;
 
   constructor() {}
 
@@ -38,15 +37,8 @@ export class HomeComponent implements OnInit {
   public deleteStory(story: Story) {
     // TOOD delete from the db as well.
     // Make a modal appear too to confirm
-
+    this.storyToDelete = story;
     this.confirmModal.open();
-    
-
-
-    const indexOfStory = this.yourStories.indexOf(story);
-    if (indexOfStory > -1) { // only splice array when item is found
-      this.yourStories.splice(indexOfStory, 1); // 2nd parameter means remove one item only
-    }
   }
 
   public editStory(story: Story) {
@@ -56,19 +48,20 @@ export class HomeComponent implements OnInit {
     console.log(indexOfStory);
   }
 
+  confirmedDelete() {
+    console.log("Confirmed delete");
+    
+    const indexOfStory = this.yourStories.indexOf(this.storyToDelete);
+    if (indexOfStory > -1) { // only splice array when item is found
+      this.yourStories.splice(indexOfStory, 1); // 2nd parameter means remove one item only
+    }
+  }
+
   public readStory(story: Story) {
     // TODO finish this method
     console.log("Reading story");
     const indexOfStory = this.yourStories.indexOf(story);
     console.log(indexOfStory);
   }
-
-  // open(content: any) {
-  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-  //     this.closeResult = `Closed with: ${result}`;
-  //   }, (reason) => {
-  //     console.log(reason);
-  //   });
-  // }
 
 }

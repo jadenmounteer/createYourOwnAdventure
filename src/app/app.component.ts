@@ -10,13 +10,12 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 export class AppComponent {
   title = 'createYourOwnAdventure';
   closeResult: string | undefined;
-  @ViewChild('confirmModal') confirmModal!: ConfirmModalComponent;
 
   constructor() {}
 
 
-  public confirmDeleteStory() {
-    this.confirmModal.open();
-  }
+  // public confirmDeleteStory() {
+  //   this.confirmModal.open();
+  // }
 
 }

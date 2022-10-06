@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,6 +10,8 @@ export class ConfirmModalComponent implements OnInit {
   closeResult = '';
   @Input() message!: string;
   @ViewChild('content') content!: any;
+  @Output() confirmed = new EventEmitter();
+
 
   constructor(private modalService: NgbModal) {}
 
@@ -33,6 +35,11 @@ export class ConfirmModalComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  public confirm(modal: any) {
+    this.confirmed.emit();
+    modal.close();
   }
 
 }
