@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Story } from '../types/story.type';
 
 
@@ -11,6 +11,8 @@ import { Story } from '../types/story.type';
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
   closeResult: string | undefined;
+  @Output() confirmDeleteStory = new EventEmitter();
+  
 
   constructor() {}
 
@@ -37,7 +39,7 @@ export class HomeComponent implements OnInit {
     console.log("Deleting story");
 
     // Open the confirm modal
-    
+    this.confirmDeleteStory.emit();
     
 
 

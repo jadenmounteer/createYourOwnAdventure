@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 <div class="page-wrapper">
-  <app-home></app-home>
+  <app-home (confirmDeleteStory)="confirmDeleteStory()"></app-home>
   <router-outlet></router-outlet>
 </div>
 
@@ -29,5 +29,7 @@
 
 <!-- TODO Trigger an event when deleting a story that opens the confirm modal -->
 <button class="btn btn-lg btn-outline-primary" (click)="open(modal)">Launch demo modal</button>
+
+<app-modal #confirmModal></app-modal>
 
 

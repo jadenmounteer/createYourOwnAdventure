@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,13 +9,16 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class ModalComponent implements OnInit {
   closeResult = '';
   @Input() message!: string;
+  @ViewChild('content') content!: any;
+
 
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
   }
 
-  open(content: any) {
+  open() {
+    const content = this.content;
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

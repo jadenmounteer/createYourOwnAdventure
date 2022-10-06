@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './modal/modal.component';
 
 
 @Component({
@@ -10,6 +11,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent {
   title = 'createYourOwnAdventure';
   closeResult: string | undefined;
+  @ViewChild('confirmModal') confirmModal!: ModalComponent;
 
   constructor(private modalService: NgbModal) {}
 
@@ -29,6 +31,12 @@ export class AppComponent {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  public confirmDeleteStory() {
+    console.log("Confirming");
+    console.log(this.confirmModal.open());
+    // open('modal');
   }
 
 }
