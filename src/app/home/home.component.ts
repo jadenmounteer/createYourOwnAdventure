@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
   }
 
   confirmedDelete() {
-    // TOOD delete from the db as well.
+    // TODO delete from the db as well.
     // Make a modal appear too to confirm
     const indexOfStory = this.yourStories.indexOf(this.storyToDelete);
     if (indexOfStory > -1) {
