@@ -1,10 +1,17 @@
-<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-    <div class="card-body">
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem">
+  <div class="card-body">
     <h4 class="card-title">{{ story.name }}</h4>
     <p class="card-text">{{ story.description }}</p>
-    <div class="story-footer">
-        <button type="button" class="btn btn-success" (click)="readStory.emit()">Read</button>
-        <button type="button" class="btn btn-warning" (click)="editStory.emit()">Edit</button>
-        <button type="button" class="btn btn-danger" (click)="deleteStory.emit()">Delete</button>
-    </div>
+  </div>
+  <div class="story-footer">
+    <button type="button" class="btn btn-success" (click)="readStory.emit()">
+      Read
+    </button>
+    <button type="button" class="btn btn-warning" (click)="editStory.emit()">
+      Edit
+    </button>
+    <button type="button" class="btn btn-danger" (click)="deleteStory.emit()">
+      Delete
+    </button>
+  </div>
 </div>

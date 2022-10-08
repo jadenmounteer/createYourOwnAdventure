@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
 
     const youGuessedIt: Story = {
       name: 'The Cave of Time',
-      description: 'Journey back in time.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at augue augue. In in enim vel neque luctus tristique. Pellentesque eleifend tristique arcu, eu eleifend tortor aliquam lacinia. Fusce venenatis id tellus ut aliquet. Vivamus nec quam sit amet purus consequat lobortis. Cras sit amet tristique nisl. Cras erat dui, cursus vitae metus nec, ullamcorper eleifend enim. Nulla finibus ac leo in porta.',
     };
 
     this.yourStories.push(newStory);

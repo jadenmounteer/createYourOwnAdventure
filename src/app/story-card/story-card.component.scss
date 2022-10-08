@@ -1,6 +1,15 @@
-@import "../scss/main.scss";
+@import '../scss/main.scss';
 
 .story-footer {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-body {
+  height: 200px;
+  overflow: scroll;
+}
+
+.story-footer {
+  padding: 16px;
 }
