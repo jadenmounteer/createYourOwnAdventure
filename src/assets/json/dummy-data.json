@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "title": "Journy Under the Sea",
+        "description": "Jouney under the sea in this thrilling choose your own adventure book.",
+        "draft": false,
+        "pages": [
+          {
+            "id": 1,
+            "pageNumber": 1,
+            "pageText": "Hello world",
+            "whenReaderFinishesPage": 1,
+            "choices": [
+              {
+                "id": 1,
+                "pageNumber": 1,
+                "text": "This is a choice",
+                "linksToPage": 2
+              }
+            ],
+            "ending": "The end"
+          }
+        ]
+      },
+
+      {
+        "id": 2,
+        "title": "The Abominable Snowman",
+        "description": "Test yourself in this adventure with the abominable snowman.",
+        "draft": true,
+        "pages": [
+          {
+            "id": 1,
+            "pageNumber": 1,
+            "pageText": "Hello world",
+            "whenReaderFinishesPage": 1,
+            "choices": [
+              {
+                "id": 1,
+                "pageNumber": 1,
+                "text": "This is a choice",
+                "linksToPage": 2
+              }
+            ],
+            "ending": "The end"
+          }
+        ]
+      }
+]
