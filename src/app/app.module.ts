@@ -6,10 +6,15 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { StoryCardComponent } from './story-card/story-card.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { CreateOrEditStoryComponent } from './create-or-edit-story/create-or-edit-story.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'createOrEditStory', component: CreateOrEditStoryComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +22,15 @@ import { CreateOrEditStoryComponent } from './create-or-edit-story/create-or-edi
     HomeComponent,
     StoryCardComponent,
     ConfirmModalComponent,
-    CreateOrEditStoryComponent
+    CreateOrEditStoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
