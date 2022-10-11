@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
       name: 'Journy Under the Sea',
       description:
         'Jouney under the sea in this thrilling choose your own adventure book.',
+      draft: false,
     };
 
     const anotherStory: Story = {
@@ -31,18 +32,21 @@ export class HomeComponent implements OnInit {
       name: 'The Abominable Snowman',
       description:
         'Test yourself in this adventure with the abominable snowman.',
+      draft: true,
     };
 
     const yetAnotherStory: Story = {
       id: 3,
       name: 'Space And Beyond',
       description: 'Where will you go in Space and Beyond?',
+      draft: false,
     };
 
     const yesAnotherStory: Story = {
       id: 4,
       name: 'The Mystery of the Maya',
       description: 'Discover the mysteries of this ancient people.',
+      draft: false,
     };
 
     const youGuessedIt: Story = {
@@ -50,6 +54,7 @@ export class HomeComponent implements OnInit {
       name: 'The Cave of Time',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at augue augue. In in enim vel neque luctus tristique. Pellentesque eleifend tristique arcu, eu eleifend tortor aliquam lacinia. Fusce venenatis id tellus ut aliquet. Vivamus nec quam sit amet purus consequat lobortis. Cras sit amet tristique nisl. Cras erat dui, cursus vitae metus nec, ullamcorper eleifend enim. Nulla finibus ac leo in porta.',
+      draft: false,
     };
 
     this.yourStories.push(newStory);
