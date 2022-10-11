@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { Story } from '../types/story.type';
