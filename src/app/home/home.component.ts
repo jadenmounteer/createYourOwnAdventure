@@ -20,28 +20,33 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // Add stories
     const newStory: Story = {
+      id: 1,
       name: 'Journy Under the Sea',
       description:
         'Jouney under the sea in this thrilling choose your own adventure book.',
     };
 
     const anotherStory: Story = {
+      id: 2,
       name: 'The Abominable Snowman',
       description:
         'Test yourself in this adventure with the abominable snowman.',
     };
 
     const yetAnotherStory: Story = {
+      id: 3,
       name: 'Space And Beyond',
       description: 'Where will you go in Space and Beyond?',
     };
 
     const yesAnotherStory: Story = {
+      id: 4,
       name: 'The Mystery of the Maya',
       description: 'Discover the mysteries of this ancient people.',
     };
 
     const youGuessedIt: Story = {
+      id: 5,
       name: 'The Cave of Time',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at augue augue. In in enim vel neque luctus tristique. Pellentesque eleifend tristique arcu, eu eleifend tortor aliquam lacinia. Fusce venenatis id tellus ut aliquet. Vivamus nec quam sit amet purus consequat lobortis. Cras sit amet tristique nisl. Cras erat dui, cursus vitae metus nec, ullamcorper eleifend enim. Nulla finibus ac leo in porta.',
@@ -61,20 +66,16 @@ export class HomeComponent implements OnInit {
   }
 
   public editStory(story: Story) {
-    // TODO finish this method
-    console.log('Editing story');
-    const indexOfStory = this.yourStories.indexOf(story);
-    console.log(indexOfStory);
+    this.router.navigate([`/createOrEditStory/${story.id}`]);
   }
 
   confirmedDelete() {
-    // TODO delete from the db as well.
-    // Make a modal appear too to confirm
     const indexOfStory = this.yourStories.indexOf(this.storyToDelete);
     if (indexOfStory > -1) {
-      // only splice array when item is found
-      this.yourStories.splice(indexOfStory, 1); // 2nd parameter means remove one item only
+      this.yourStories.splice(indexOfStory, 1);
     }
+
+    // TODO delete from the db as well.
   }
 
   public readStory(story: Story) {
