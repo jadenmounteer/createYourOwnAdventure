@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Story } from '../types/story.type';
+import { Story } from '../types/types';
 declare var $: any; // For Jquery
 
 @Component({
