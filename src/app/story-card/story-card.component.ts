@@ -14,12 +14,12 @@ export class StoryCardComponent implements OnInit {
   @Output() editStory = new EventEmitter();
   @Output() readStory = new EventEmitter();
 
-  constructor() {}
-
-  ngOnInit(): void {
+  constructor() {
     // Initialize the tooltips using jquery. Not sure why, but we have to do this.
     $(function () {
       $('[data-toggle="tooltip"]').tooltip();
     });
   }
+
+  ngOnInit(): void {}
 }
