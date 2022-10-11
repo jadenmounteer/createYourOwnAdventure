@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.initializeDummyData();
+  }
+
+  public initializeDummyData() {
     // HTTP Request to get our stories
     const ajax$ = ajax.getJSON<Array<Story>>('assets/json/dummy-data.json');
 
