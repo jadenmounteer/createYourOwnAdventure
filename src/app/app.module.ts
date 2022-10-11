@@ -13,7 +13,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'createOrEditStory', component: CreateOrEditStoryComponent },
+  {
+    path: 'createOrEditStory/:id',
+    component: CreateOrEditStoryComponent,
+  },
+  {
+    path: 'createOrEditStory', // Don't pass in an id to get to the create page
+    component: CreateOrEditStoryComponent,
+  },
 ];
 @NgModule({
   declarations: [

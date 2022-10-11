@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-create-or-edit-story',
@@ -8,7 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CreateOrEditStoryComponent implements OnInit {
   @Input()
   createStory: boolean = true;
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
+  private storyID: number | undefined;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Get the story ID
+    this.route.params.subscribe((params: Params) => {
+      this.storyID = params['id'];
+    });
+  }
 }
