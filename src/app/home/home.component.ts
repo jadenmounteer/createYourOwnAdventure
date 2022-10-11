@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { Story } from '../types/story.type';
 
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   public storyToDelete!: Story;
   public confirmModalMessage: string = '';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     // Add stories
@@ -81,5 +82,9 @@ export class HomeComponent implements OnInit {
     console.log('Reading story');
     const indexOfStory = this.yourStories.indexOf(story);
     console.log(indexOfStory);
+  }
+
+  public createNewStory() {
+    this.router.navigate(['/createOrEditStory']);
   }
 }
