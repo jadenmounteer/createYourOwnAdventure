@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { StoryCardComponent } from './story-card/story-card.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
+import { CreateOrEditStoryComponent } from './create-or-edit-story/create-or-edit-story.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
     NavComponent,
     HomeComponent,
     StoryCardComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    CreateOrEditStoryComponent
   ],
   imports: [
     BrowserModule,

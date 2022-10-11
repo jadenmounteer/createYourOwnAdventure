@@ -1,0 +1,16 @@
+<h1 *ngIf="createStory">Create Story</h1>
+<h1 *ngIf="!createStory">Edit Story</h1>
+
+<form>
+  <fieldset>
+    <div class="form-group">
+      <label for="title" class="form-label mt-4">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Enter a title for your story"
+      />
+    </div>
+  </fieldset>
+</form>
