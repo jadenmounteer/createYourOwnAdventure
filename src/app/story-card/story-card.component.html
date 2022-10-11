@@ -14,16 +14,13 @@
       [disabled]="story.draft"
       data-bs-toggle="tooltip"
       data-bs-placement="top"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Tooltip on top"
     >
       Read
     </button>
-    <button
-      type="button"
-      class="btn btn-warning"
-      (click)="editStory.emit()"
-      data-bs-toggle="tooltip"
-      data-bs-placement="top"
-    >
+    <button type="button" class="btn btn-warning" (click)="editStory.emit()">
       Edit
     </button>
     <button type="button" class="btn btn-danger" (click)="deleteStory.emit()">
