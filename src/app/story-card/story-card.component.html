@@ -11,12 +11,19 @@
       type="button"
       class="btn btn-success"
       (click)="readStory.emit()"
-      [disabled]="story.draft"
+      *ngIf="!story.draft"
+    >
+      Read
+    </button>
+    <button
+      type="button"
+      class="btn btn-success disabled"
       data-bs-toggle="tooltip"
       data-bs-placement="top"
       data-toggle="tooltip"
       data-placement="top"
-      title="Tooltip on top"
+      title="You cannot read a draft. To finish the draft, edit the story and give it at least one ending."
+      *ngIf="story.draft"
     >
       Read
     </button>

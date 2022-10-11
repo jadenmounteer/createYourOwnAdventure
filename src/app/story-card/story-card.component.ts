@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Story } from '../types/story.type';
+declare var $: any; // For Jquery
+
 @Component({
   selector: 'app-story-card',
   templateUrl: './story-card.component.html',
@@ -14,5 +16,10 @@ export class StoryCardComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Initialize the tooltips using jquery. Not sure why, but we have to do this.
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  }
 }
