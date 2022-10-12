@@ -8,7 +8,24 @@
           {
             "id": 1,
             "pageNumber": 1,
+            "currentPage": false,
             "pageText": "Hello world",
+            "whenReaderFinishesPage": 1,
+            "choices": [
+              {
+                "id": 1,
+                "pageNumber": 1,
+                "text": "This is a choice",
+                "linksToPage": 2
+              }
+            ],
+            "ending": "The end"
+          },
+          {
+            "id": 2,
+            "pageNumber": 2,
+            "currentPage": true,
+            "pageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed facilisis mauris. Duis tempus sem quis mi imperdiet tempus. Vestibulum at mauris vestibulum, sollicitudin tellus id, vestibulum justo. Etiam lobortis hendrerit orci at malesuada. Morbi sollicitudin vitae leo et condimentum. Quisque at lacus a libero imperdiet ullamcorper. Ut interdum dui rhoncus, aliquam purus id, sagittis tellus. Sed eget lacinia justo. Donec scelerisque justo eget elit iaculis, eu lacinia enim iaculis. Sed at lorem lectus.",
             "whenReaderFinishesPage": 1,
             "choices": [
               {
@@ -32,6 +49,7 @@
           {
             "id": 1,
             "pageNumber": 1,
+            "currentPage": false,
             "pageText": "Hello world",
             "whenReaderFinishesPage": 1,
             "choices": [

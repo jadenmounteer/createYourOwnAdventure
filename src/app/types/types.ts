@@ -10,6 +10,7 @@ export interface Page {
   id: number;
   pageNumber: number;
   pageText: string;
+  currentPage: Boolean;
   whenReaderFinishesPage: number;
   choices: Array<Choice> | undefined;
   ending: string | undefined;

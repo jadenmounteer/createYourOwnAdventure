@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AjaxHelperService } from '../services/ajax-helper.service';
-import { Story } from '../types/types';
+import { Page, Story } from '../types/types';
 
 @Component({
   selector: 'app-read-story',
@@ -11,7 +11,7 @@ import { Story } from '../types/types';
 export class ReadStoryComponent implements OnInit {
   public story: Story | undefined;
   public storyID: number | undefined;
-  public currentPage: number = 3;
+  public currentPage: Page | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,10 +31,23 @@ export class ReadStoryComponent implements OnInit {
         stories.forEach((story) => {
           if (story.id === Number(this.storyID)) {
             this.story = story;
+            this.findCurrentPage(story);
           }
         });
       },
       error: (err) => console.log(err),
     });
+  }
+
+  private findCurrentPage(story: Story) {
+    story.pages.forEach((page) => {
+      if (page.currentPage) {
+        this.currentPage = page;
+      }
+    });
+
+    if (!this.currentPage) {
+      this.currentPage = story.pages[0];
+    }
   }
 }

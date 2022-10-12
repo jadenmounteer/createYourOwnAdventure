@@ -1,6 +1,9 @@
-<div *ngIf="story">
+<div *ngIf="story && currentPage">
   <div class="story-header">
     <h1>{{ story.title }}</h1>
-    <h1>{{ currentPage }}</h1>
+    <h1>{{ currentPage.pageNumber }}</h1>
+  </div>
+  <div class="page-text">
+    <p>{{ currentPage.pageText }}</p>
   </div>
 </div>
