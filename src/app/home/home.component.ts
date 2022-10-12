@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { Story } from '../types/types';
 import { ajax } from 'rxjs/ajax';
+import { AjaxHelperService } from '../services/ajax-helper.service';
 
 @Component({
   selector: 'app-home',
@@ -16,17 +17,12 @@ export class HomeComponent implements OnInit {
   public storyToDelete!: Story;
   public confirmModalMessage: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private ajaxHelper: AjaxHelperService) {}
 
   ngOnInit(): void {
-    this.initializeDummyData();
-  }
+    const storiesObservable = this.ajaxHelper.initializeDummyData();
 
-  public initializeDummyData() {
-    // HTTP Request to get our stories
-    const ajax$ = ajax.getJSON<Array<Story>>('assets/json/dummy-data.json');
-
-    ajax$.subscribe({
+    storiesObservable.subscribe({
       next: (stories) => {
         this.yourStories = stories;
       },
