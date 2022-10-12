@@ -28,7 +28,7 @@ export class ReadStoryComponent implements OnInit {
     storiesObservable.subscribe({
       next: (stories) => {
         stories.forEach((story) => {
-          if (story.id === this.storyID) {
+          if (story.id === Number(this.storyID)) {
             this.story = story;
           }
         });
