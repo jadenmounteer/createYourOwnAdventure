@@ -11,6 +11,7 @@ import { Story } from '../types/types';
 export class ReadStoryComponent implements OnInit {
   public story: Story | undefined;
   public storyID: number | undefined;
+  public currentPage: number = 3;
 
   constructor(
     private route: ActivatedRoute,
