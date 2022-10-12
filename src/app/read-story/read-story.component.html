@@ -6,4 +6,13 @@
   <div class="page-text">
     <p>{{ currentPage.pageText }}</p>
   </div>
+  <div class="choices d-grid gap-2">
+    <button
+      *ngFor="let choice of currentPage.choices"
+      class="btn btn-lg btn-primary"
+      type="button"
+    >
+      {{ choice.text }}
+    </button>
+  </div>
 </div>

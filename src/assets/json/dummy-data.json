@@ -15,7 +15,7 @@
               {
                 "id": 1,
                 "pageNumber": 1,
-                "text": "This is a choice",
+                "text": "Follow the Cpt. Nemo into the Nautilus",
                 "linksToPage": 2
               }
             ],
@@ -25,13 +25,19 @@
             "id": 2,
             "pageNumber": 2,
             "currentPage": true,
-            "pageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed facilisis mauris. Duis tempus sem quis mi imperdiet tempus. Vestibulum at mauris vestibulum, sollicitudin tellus id, vestibulum justo. Etiam lobortis hendrerit orci at malesuada. Morbi sollicitudin vitae leo et condimentum. Quisque at lacus a libero imperdiet ullamcorper. Ut interdum dui rhoncus, aliquam purus id, sagittis tellus. Sed eget lacinia justo. Donec scelerisque justo eget elit iaculis, eu lacinia enim iaculis. Sed at lorem lectus.",
+            "pageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies nibh in nulla consequat, vitae luctus lectus dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris sodales pretium pellentesque. Pellentesque fermentum justo non libero placerat placerat. Fusce sit amet finibus velit. Suspendisse volutpat condimentum sapien, ac fringilla velit tempor quis. Pellentesque eget ex mollis, vehicula lectus sit amet, finibus elit. Morbi est ex, faucibus a lectus in, gravida imperdiet libero. In vitae enim non velit dapibus molestie in sed augue. Phasellus ut felis et augue feugiat bibendum. Morbi non ultrices augue, ut semper est. In convallis luctus vulputate. Sed sollicitudin ipsum sit amet magna gravida, <br> pellentesque laoreet lacus vulputate. Aliquam condimentum rhoncus magna fringilla fringilla.",
             "whenReaderFinishesPage": 1,
             "choices": [
               {
                 "id": 1,
                 "pageNumber": 1,
-                "text": "This is a choice",
+                "text": "Follow the Cpt. Nemo into the Nautilus",
+                "linksToPage": 2
+              },
+              {
+                "id": 1,
+                "pageNumber": 1,
+                "text": "Refuse and stay on dry land.",
                 "linksToPage": 2
               }
             ],
