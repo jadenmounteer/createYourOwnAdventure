@@ -3,9 +3,7 @@
     <h1>{{ story.title }}</h1>
     <h1>{{ currentPage.pageNumber }}</h1>
   </div>
-  <div class="page-text">
-    <p>{{ currentPage.pageText }}</p>
-  </div>
+  <div class="page-text" [innerHTML]="currentPage.pageText"></div>
   <div class="choices d-grid gap-2">
     <button
       *ngFor="let choice of currentPage.choices"
