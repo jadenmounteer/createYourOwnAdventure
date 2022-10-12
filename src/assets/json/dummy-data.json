@@ -26,7 +26,7 @@
             "pageNumber": 2,
             "currentPage": true,
             "pageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies nibh in nulla consequat, vitae luctus lectus dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris sodales pretium pellentesque. Pellentesque fermentum justo non libero placerat placerat. Fusce sit amet finibus velit. Suspendisse volutpat condimentum sapien, ac fringilla velit tempor quis. Pellentesque eget ex mollis, vehicula lectus sit amet, finibus elit. <br>  Morbi est ex, faucibus a lectus in, gravida imperdiet libero. In vitae enim non velit dapibus molestie in sed augue. Phasellus ut felis et augue feugiat bibendum. Morbi non ultrices augue, ut semper est. In convallis luctus vulputate. Sed sollicitudin ipsum sit amet magna gravida, pellentesque laoreet lacus vulputate. Aliquam condimentum rhoncus magna fringilla fringilla.",
-            "whenReaderFinishesPage": 1,
+            "whenReaderFinishesPage": 3,
             "choices": [
               {
                 "id": 1,
@@ -40,8 +40,7 @@
                 "text": "Refuse and stay on dry land.",
                 "linksToPage": 2
               }
-            ],
-            "ending": "The end"
+            ]
           }
         ]
       },
@@ -65,8 +64,7 @@
                 "text": "This is a choice",
                 "linksToPage": 2
               }
-            ],
-            "ending": "The end"
+            ]
           }
         ]
       }

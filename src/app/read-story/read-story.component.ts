@@ -14,6 +14,7 @@ export class ReadStoryComponent implements OnInit {
   public currentPage: Page | undefined;
   public showChoices: boolean = false;
   public continueToNextPage: boolean = false;
+  public showEnding: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -64,7 +65,7 @@ export class ReadStoryComponent implements OnInit {
           this.showChoices = true;
           break;
         default:
-          console.log('Hello world!');
+          this.showEnding = true;
           break;
       }
     }

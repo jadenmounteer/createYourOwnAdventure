@@ -13,7 +13,6 @@ export interface Page {
   currentPage: Boolean;
   whenReaderFinishesPage: number;
   choices: Array<Choice> | undefined;
-  ending: string | undefined;
 }
 
 export interface Choice {
