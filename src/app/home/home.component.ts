@@ -54,10 +54,7 @@ export class HomeComponent implements OnInit {
   }
 
   public readStory(story: Story) {
-    // TODO finish this method
-    console.log('Reading story');
-    const indexOfStory = this.yourStories.indexOf(story);
-    console.log(indexOfStory);
+    this.router.navigate([`/readStory/${story.id}`]);
   }
 
   public createNewStory() {

@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { CreateOrEditStoryComponent } from './create-or-edit-story/create-or-edit-story.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ReadStoryComponent } from './read-story/read-story.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,10 @@ const appRoutes: Routes = [
     path: 'createOrEditStory', // Don't pass in an id to get to the create page
     component: CreateOrEditStoryComponent,
   },
+  {
+    path: 'readStory/:id',
+    component: ReadStoryComponent,
+  },
 ];
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ const appRoutes: Routes = [
     StoryCardComponent,
     ConfirmModalComponent,
     CreateOrEditStoryComponent,
+    ReadStoryComponent,
   ],
   imports: [
     BrowserModule,
