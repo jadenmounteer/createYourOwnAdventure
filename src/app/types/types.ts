@@ -1,5 +1,6 @@
 export interface Story {
   id: number;
+  userID: number;
   title: string;
   description: string;
   draft: boolean;
@@ -7,7 +8,6 @@ export interface Story {
 }
 
 export interface Page {
-  id: number;
   pageNumber: number;
   pageText: string;
   currentPage: Boolean;
@@ -16,8 +16,6 @@ export interface Page {
 }
 
 export interface Choice {
-  id: number;
-  pageNumber: number;
   text: string;
   linksToPage: number | undefined;
 }
