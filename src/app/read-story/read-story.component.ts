@@ -12,6 +12,8 @@ export class ReadStoryComponent implements OnInit {
   public story: Story | undefined;
   public storyID: number | undefined;
   public currentPage: Page | undefined;
+  public showChoices: boolean = false;
+  public continueToNextPage: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +34,7 @@ export class ReadStoryComponent implements OnInit {
           if (story.id === Number(this.storyID)) {
             this.story = story;
             this.findCurrentPage(story);
+            this.determineWhatToDoWhenReaderFinishesPage();
           }
         });
       },
@@ -48,6 +51,22 @@ export class ReadStoryComponent implements OnInit {
 
     if (!this.currentPage) {
       this.currentPage = story.pages[0];
+    }
+  }
+
+  private determineWhatToDoWhenReaderFinishesPage() {
+    if (this.currentPage) {
+      switch (this.currentPage.whenReaderFinishesPage) {
+        case 1:
+          this.continueToNextPage = true;
+          break;
+        case 2:
+          this.showChoices = true;
+          break;
+        default:
+          console.log('Hello world!');
+          break;
+      }
     }
   }
 }
