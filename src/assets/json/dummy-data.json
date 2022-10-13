@@ -40,7 +40,7 @@
             "pageNumber": 3,
             "currentPage": false,
             "pageText": "You follow Cpt. Nemo into the Nautilus",
-            "whenReaderFinishesPage": 3,
+            "whenReaderFinishesPage": 1,
             "choices": [
               {
                 "text": "Follow the Cpt. Nemo into the Nautilus",
@@ -48,14 +48,21 @@
               },
               {
                 "text": "Refuse and stay on dry land.",
-                "linksToPage": 4
+                "linksToPage": 5
               }
-            ]
+            ],
+            "nextPage": 5
           },
           {
             "pageNumber": 4,
             "currentPage": false,
             "pageText": "You stay on dry land and miss out on an awesome adventure.",
+            "whenReaderFinishesPage": 3
+          },
+          {
+            "pageNumber": 5,
+            "currentPage": false,
+            "pageText": "You explore the Nautilus",
             "whenReaderFinishesPage": 3
           }
         ]
