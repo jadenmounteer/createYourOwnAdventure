@@ -63,12 +63,18 @@ export class ReadStoryComponent implements OnInit {
       switch (this.currentPage.whenReaderFinishesPage) {
         case 1:
           this.continueToNextPage = true;
+          this.showChoices = false;
+          this.showEnding = false;
           break;
         case 2:
           this.showChoices = true;
+          this.continueToNextPage = false;
+          this.showEnding = false;
           break;
         default:
           this.showEnding = true;
+          this.showChoices = false;
+          this.continueToNextPage = false;
           break;
       }
     }
@@ -82,6 +88,7 @@ export class ReadStoryComponent implements OnInit {
         if (this.currentPage && page.pageNumber === nextPageNumber) {
           this.previousPages.push(this.currentPage);
           this.currentPage = page;
+          this.determineWhatToDoWhenReaderFinishesPage();
         }
       });
     }
@@ -89,5 +96,6 @@ export class ReadStoryComponent implements OnInit {
 
   public goToLastPage() {
     this.currentPage = this.previousPages.pop();
+    this.determineWhatToDoWhenReaderFinishesPage();
   }
 }
