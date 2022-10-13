@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AjaxHelperService } from '../services/ajax-helper/ajax-helper.service';
+import { PreviousPagesService } from '../services/previous-pages/previous-pages.service';
 import { Page, Story } from '../types/types';
 
 @Component({
@@ -19,7 +20,8 @@ export class ReadStoryComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private ajaxHelper: AjaxHelperService
+    private ajaxHelper: AjaxHelperService,
+    private previousPages: PreviousPagesService
   ) {}
 
   ngOnInit(): void {
