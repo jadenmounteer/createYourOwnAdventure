@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { Story } from '../types/types';
+import { Story } from 'src/app/types/types';
 
 @Injectable({
   providedIn: 'root',

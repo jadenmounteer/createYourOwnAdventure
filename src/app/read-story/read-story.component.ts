@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { AjaxHelperService } from '../services/ajax-helper.service';
+import { AjaxHelperService } from '../services/ajax-helper/ajax-helper.service';
 import { Page, Story } from '../types/types';
 
 @Component({
