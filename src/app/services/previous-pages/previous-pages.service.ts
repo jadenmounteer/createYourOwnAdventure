@@ -32,4 +32,10 @@ export class PreviousPagesService<Page> implements PageStack<Page> {
   public size(): number {
     return this.storage.length;
   }
+
+  public clearAll(): void {
+    while (this.size() > 0) {
+      this.storage.pop();
+    }
+  }
 }
