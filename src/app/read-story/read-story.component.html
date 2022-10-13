@@ -6,7 +6,11 @@
   <div class="page-text" [innerHTML]="currentPage.pageText"></div>
 
   <div *ngIf="continueToNextPage" class="choices d-grid gap-2">
-    <button class="btn btn-lg btn-primary" type="button">
+    <button
+      class="btn btn-lg btn-primary"
+      type="button"
+      (click)="goToNextPage()"
+    >
       Continue to page {{ currentPage.pageNumber + 1 }}
     </button>
   </div>

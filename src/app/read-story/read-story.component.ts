@@ -70,4 +70,16 @@ export class ReadStoryComponent implements OnInit {
       }
     }
   }
+
+  public goToNextPage() {
+    if (this.currentPage && this.story) {
+      const nextPageNumber = this.currentPage.pageNumber + 1;
+
+      this.story.pages.forEach((page) => {
+        if (page.pageNumber === nextPageNumber) {
+          this.currentPage = page;
+        }
+      });
+    }
+  }
 }
