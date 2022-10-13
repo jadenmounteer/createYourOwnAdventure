@@ -21,7 +21,7 @@ export class ReadStoryComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private ajaxHelper: AjaxHelperService,
-    private previousPages: PreviousPagesService
+    public previousPages: PreviousPagesService<Page>
   ) {}
 
   ngOnInit(): void {
@@ -79,8 +79,8 @@ export class ReadStoryComponent implements OnInit {
       const nextPageNumber = this.currentPage.pageNumber + 1;
 
       this.story.pages.forEach((page) => {
-        if (page.pageNumber === nextPageNumber) {
-          this.lastPage = this.currentPage;
+        if (this.currentPage && page.pageNumber === nextPageNumber) {
+          this.previousPages.push(this.currentPage);
           this.currentPage = page;
         }
       });
@@ -88,8 +88,6 @@ export class ReadStoryComponent implements OnInit {
   }
 
   public goToLastPage() {
-    if (this.lastPage) {
-      this.currentPage = this.lastPage;
-    }
+    this.currentPage = this.previousPages.pop();
   }
 }
