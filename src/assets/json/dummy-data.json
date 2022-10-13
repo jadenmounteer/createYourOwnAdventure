@@ -55,18 +55,8 @@
           {
             "pageNumber": 4,
             "currentPage": false,
-            "pageText": "Cpt. Nemo forces you into the Nautilus.",
-            "whenReaderFinishesPage": 1,
-            "choices": [
-              {
-                "text": "Follow the Cpt. Nemo into the Nautilus",
-                "linksToPage": 3
-              },
-              {
-                "text": "Refuse and stay on dry land.",
-                "linksToPage": 4
-              }
-            ]
+            "pageText": "You stay on dry land and miss out on an awesome adventure.",
+            "whenReaderFinishesPage": 3
           }
         ]
       },

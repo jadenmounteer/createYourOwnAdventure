@@ -32,6 +32,7 @@
       *ngFor="let choice of currentPage.choices"
       class="btn btn-lg btn-primary"
       type="button"
+      (click)="makeChoice(choice)"
     >
       {{ choice.text }}
     </button>

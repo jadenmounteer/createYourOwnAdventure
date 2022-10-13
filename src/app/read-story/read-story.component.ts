@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AjaxHelperService } from '../services/ajax-helper/ajax-helper.service';
 import { PreviousPagesService } from '../services/previous-pages/previous-pages.service';
-import { Page, Story } from '../types/types';
+import { Choice, Page, Story } from '../types/types';
 
 @Component({
   selector: 'app-read-story',
@@ -87,9 +87,7 @@ export class ReadStoryComponent implements OnInit {
 
       this.story.pages.forEach((page) => {
         if (this.currentPage && page.pageNumber === nextPageNumber) {
-          this.previousPages.push(this.currentPage);
-          this.currentPage = page;
-          this.determineWhatToDoWhenReaderFinishesPage();
+          this.goToPage(page);
         }
       });
     }
@@ -98,5 +96,25 @@ export class ReadStoryComponent implements OnInit {
   public goToLastPage() {
     this.currentPage = this.previousPages.pop();
     this.determineWhatToDoWhenReaderFinishesPage();
+  }
+
+  public makeChoice(choice: Choice) {
+    const linkedPage = choice.linksToPage;
+
+    if (this.story) {
+      this.story.pages.forEach((page) => {
+        if (this.currentPage && page.pageNumber === linkedPage) {
+          this.goToPage(page);
+        }
+      });
+    }
+  }
+
+  private goToPage(pageToGoTo: Page) {
+    if (this.currentPage) {
+      this.previousPages.push(this.currentPage);
+      this.currentPage = pageToGoTo;
+      this.determineWhatToDoWhenReaderFinishesPage();
+    }
   }
 }
