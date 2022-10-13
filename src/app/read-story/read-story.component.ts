@@ -15,6 +15,7 @@ export class ReadStoryComponent implements OnInit {
   public showChoices: boolean = false;
   public continueToNextPage: boolean = false;
   public showEnding: boolean = false;
+  public lastPage: Page | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -77,9 +78,16 @@ export class ReadStoryComponent implements OnInit {
 
       this.story.pages.forEach((page) => {
         if (page.pageNumber === nextPageNumber) {
+          this.lastPage = this.currentPage;
           this.currentPage = page;
         }
       });
+    }
+  }
+
+  public goToLastPage() {
+    if (this.lastPage) {
+      this.currentPage = this.lastPage;
     }
   }
 }

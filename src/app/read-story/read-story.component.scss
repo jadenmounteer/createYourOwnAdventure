@@ -14,3 +14,13 @@
   margin-top: 50px;
   text-align: center;
 }
+
+.page-arrow {
+  font-size: 2em;
+  transition: all 0.1s;
+}
+
+.page-arrow:hover {
+  cursor: pointer;
+  color: #2a9fd6;
+}
