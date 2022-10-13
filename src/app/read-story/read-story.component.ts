@@ -83,7 +83,7 @@ export class ReadStoryComponent implements OnInit {
 
   public goToNextPage() {
     if (this.currentPage && this.story) {
-      const nextPageNumber = this.currentPage.pageNumber + 1;
+      const nextPageNumber = this.currentPage.nextPage;
 
       this.story.pages.forEach((page) => {
         if (this.currentPage && page.pageNumber === nextPageNumber) {

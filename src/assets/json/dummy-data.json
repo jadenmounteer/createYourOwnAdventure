@@ -18,7 +18,7 @@
                 "linksToPage": 2
               }
             ],
-            "ending": "The end"
+            "nextPage": 2
           },
           {
             "pageNumber": 2,
@@ -28,11 +28,43 @@
             "choices": [
               {
                 "text": "Follow the Cpt. Nemo into the Nautilus",
-                "linksToPage": 2
+                "linksToPage": 3
               },
               {
                 "text": "Refuse and stay on dry land.",
-                "linksToPage": 2
+                "linksToPage": 4
+              }
+            ]
+          },
+          {
+            "pageNumber": 3,
+            "currentPage": false,
+            "pageText": "You follow Cpt. Nemo into the Nautilus",
+            "whenReaderFinishesPage": 3,
+            "choices": [
+              {
+                "text": "Follow the Cpt. Nemo into the Nautilus",
+                "linksToPage": 3
+              },
+              {
+                "text": "Refuse and stay on dry land.",
+                "linksToPage": 4
+              }
+            ]
+          },
+          {
+            "pageNumber": 4,
+            "currentPage": false,
+            "pageText": "Cpt. Nemo forces you into the Nautilus.",
+            "whenReaderFinishesPage": 1,
+            "choices": [
+              {
+                "text": "Follow the Cpt. Nemo into the Nautilus",
+                "linksToPage": 3
+              },
+              {
+                "text": "Refuse and stay on dry land.",
+                "linksToPage": 4
               }
             ]
           }
