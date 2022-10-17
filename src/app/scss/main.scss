@@ -1,4 +1,9 @@
-@import "./layout";
+@import './layout';
 
 // Colors
 $orange: #f80;
+
+// Make the tooltips appear for disabled buttons.
+.btn.disabled {
+  pointer-events: auto;
+}

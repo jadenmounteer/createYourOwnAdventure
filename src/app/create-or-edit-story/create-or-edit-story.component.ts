@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+declare var $: any; // For Jquery
 
 @Component({
   selector: 'app-create-or-edit-story',
@@ -7,8 +8,14 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./create-or-edit-story.component.scss'],
 })
 export class CreateOrEditStoryComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    // Initialize the tooltips using jquery. Not sure why, but we have to do this.
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  }
   public storyID: number | undefined;
+  public enablePublish: boolean = false;
 
   ngOnInit(): void {
     // Get the story ID if we are editing

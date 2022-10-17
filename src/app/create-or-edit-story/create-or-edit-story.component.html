@@ -64,7 +64,33 @@
   </fieldset>
 
   <div class="submit-buttons">
-    <button type="submit" class="btn btn-success">Publish Story</button>
-    <button type="submit" class="btn btn-primary">Save Draft</button>
+    <button type="submit" class="btn btn-success" *ngIf="enablePublish">
+      Publish Story
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-success disabled"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Your story must have at least one ending before you publish."
+      *ngIf="!enablePublish"
+    >
+      Read
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Save your draft and finish it later."
+    >
+      Save Draft
+    </button>
   </div>
 </form>
