@@ -11,6 +11,7 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { CreateOrEditStoryComponent } from './create-or-edit-story/create-or-edit-story.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReadStoryComponent } from './read-story/read-story.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     NgbModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
