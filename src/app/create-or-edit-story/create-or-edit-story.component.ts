@@ -15,7 +15,7 @@ export class CreateOrEditStoryComponent implements OnInit {
     });
   }
   public storyID: number | undefined;
-  public enablePublish: boolean = false;
+  public enablePublish: boolean = false; // TODO Make the publish button appear if we have an ending.
 
   ngOnInit(): void {
     // Get the story ID if we are editing
