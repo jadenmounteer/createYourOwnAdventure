@@ -18,4 +18,12 @@ export class CreateOrEditStoryComponent implements OnInit {
 
     // TODO If we are editing, retreive the story details from the db
   }
+
+  onPublish() {
+    console.log('Submitting form');
+  }
+
+  onSaveDraft() {
+    console.log('Saving draft');
+  }
 }

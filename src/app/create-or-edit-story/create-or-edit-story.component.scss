@@ -5,3 +5,15 @@
 //     max-width: 50%;
 //   }
 // }
+
+.submit-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+
+  @include breakpoint(medium) {
+    max-width: 300px;
+    flex-direction: row;
+  }
+}
