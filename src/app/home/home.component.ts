@@ -9,6 +9,7 @@ import { AjaxHelperService } from '../services/ajax-helper/ajax-helper.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  providers: [AjaxHelperService],
 })
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];

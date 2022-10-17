@@ -8,6 +8,7 @@ import { Choice, Page, Story } from '../types/types';
   selector: 'app-read-story',
   templateUrl: './read-story.component.html',
   styleUrls: ['./read-story.component.scss'],
+  providers: [AjaxHelperService],
 })
 export class ReadStoryComponent implements OnInit {
   public story: Story | undefined;
