@@ -1,15 +1,17 @@
 <h1 *ngIf="!storyID">Create Story</h1>
 <h1 *ngIf="storyID">Edit Story</h1>
 
-<form (ngSubmit)="onPublish()">
+<form (ngSubmit)="onPublish(form)" #form="ngForm">
   <fieldset>
     <div class="form-group">
       <label for="title" class="form-label mt-4">Title</label>
       <input
+        name="title"
         type="text"
         class="form-control"
         id="title"
         placeholder="Enter a title for your story"
+        ngModel
       />
     </div>
   </fieldset>
@@ -19,7 +21,13 @@
   <fieldset>
     <div class="form-group">
       <label for="pageText" class="form-label mt-4">Page Text</label>
-      <textarea class="form-control" id="pageText" rows="3"></textarea>
+      <textarea
+        class="form-control"
+        id="pageText"
+        name="pageText"
+        rows="3"
+        ngModel
+      ></textarea>
     </div>
 
     <label for="pageText" class="form-label mt-4"
@@ -32,6 +40,7 @@
         name="optionsRadios"
         id="optionsRadios1"
         value="option1"
+        ngModel
       />
       <label class="form-check-label" for="optionsRadios1">
         Continue to next page
@@ -44,6 +53,7 @@
         name="optionsRadios"
         id="optionsRadios2"
         value="option2"
+        ngModel
       />
       <label class="form-check-label" for="optionsRadios2">
         Make a choice
@@ -56,6 +66,7 @@
         name="optionsRadios"
         id="optionsRadios3"
         value="option3"
+        ngModel
       />
       <label class="form-check-label" for="optionsRadios3">
         Trigger an ending

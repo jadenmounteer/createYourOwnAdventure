@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 declare var $: any; // For Jquery
 
@@ -26,8 +27,9 @@ export class CreateOrEditStoryComponent implements OnInit {
     // TODO If we are editing, retreive the story details from the db
   }
 
-  onPublish() {
+  onPublish(form: NgForm) {
     console.log('Submitting form');
+    console.log(form);
   }
 
   onSaveDraft() {
