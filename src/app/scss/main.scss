@@ -6,4 +6,5 @@ $orange: #f80;
 // Make the tooltips appear for disabled buttons.
 .btn.disabled {
   pointer-events: auto;
+  cursor: not-allowed;
 }
