@@ -16,7 +16,6 @@ export class CreateOrEditStoryComponent implements OnInit {
     });
   }
   public storyID: number | undefined;
-  public enablePublish: boolean = false; // TODO Make the publish button appear if we have an ending.
 
   ngOnInit(): void {
     // Get the story ID if we are editing
@@ -28,8 +27,11 @@ export class CreateOrEditStoryComponent implements OnInit {
   }
 
   onPublish(form: NgForm) {
-    console.log('Submitting form');
-    console.log(form);
+    const value = form.value;
+    const title = value.title;
+    console.log('Submitting form for ' + title);
+
+    // TODO Save the pages and organize them into a story
   }
 
   onSaveDraft() {

@@ -12,6 +12,7 @@
         id="title"
         placeholder="Enter a title for your story"
         ngModel
+        required
       />
     </div>
   </fieldset>
@@ -27,6 +28,7 @@
         name="pageText"
         rows="3"
         ngModel
+        required
       ></textarea>
     </div>
 
@@ -75,7 +77,7 @@
   </fieldset>
 
   <div class="submit-buttons">
-    <button type="submit" class="btn btn-success" *ngIf="enablePublish">
+    <button type="submit" class="btn btn-success" *ngIf="form.valid">
       Publish Story
     </button>
 
@@ -87,9 +89,9 @@
       data-toggle="tooltip"
       data-placement="top"
       title="Your story must have at least one ending before you publish."
-      *ngIf="!enablePublish"
+      *ngIf="!form.valid"
     >
-      Read
+      Publish Story
     </button>
 
     <button
