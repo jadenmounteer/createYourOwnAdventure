@@ -1,7 +1,7 @@
 <h1 *ngIf="!storyID">Create Story</h1>
 <h1 *ngIf="storyID">Edit Story</h1>
 
-<form (ngSubmit)="onPublish(form)" #form="ngForm">
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <fieldset>
     <div class="form-group">
       <label for="title" class="form-label mt-4">Title</label>
