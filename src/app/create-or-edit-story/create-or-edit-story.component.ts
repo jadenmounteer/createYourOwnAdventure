@@ -9,6 +9,8 @@ declare var $: any; // For Jquery
   styleUrls: ['./create-or-edit-story.component.scss'],
 })
 export class CreateOrEditStoryComponent implements OnInit {
+  public editMode: boolean = false;
+
   constructor(private route: ActivatedRoute) {
     // Initialize the tooltips using jquery. Not sure why, but we have to do this.
     $(function () {
@@ -23,10 +25,18 @@ export class CreateOrEditStoryComponent implements OnInit {
       this.storyID = params['id'];
     });
 
+    this.enableEditMode();
+
     // TODO If we are editing, retreive the story details from the db
   }
 
-  onPublish(form: NgForm) {
+  private enableEditMode() {
+    if (this.storyID) {
+      this.editMode = true;
+    }
+  }
+
+  public onPublish(form: NgForm) {
     const value = form.value;
     const title = value.title;
     console.log('Submitting form for ' + title);
@@ -34,7 +44,7 @@ export class CreateOrEditStoryComponent implements OnInit {
     // TODO Save the pages and organize them into a story
   }
 
-  onSaveDraft() {
+  public onSaveDraft() {
     console.log('Saving draft');
   }
 }

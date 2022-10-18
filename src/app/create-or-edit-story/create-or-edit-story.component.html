@@ -43,6 +43,7 @@
         id="optionsRadios1"
         value="option1"
         ngModel
+        required
       />
       <label class="form-check-label" for="optionsRadios1">
         Continue to next page
@@ -56,6 +57,7 @@
         id="optionsRadios2"
         value="option2"
         ngModel
+        required
       />
       <label class="form-check-label" for="optionsRadios2">
         Make a choice
@@ -69,6 +71,7 @@
         id="optionsRadios3"
         value="option3"
         ngModel
+        required
       />
       <label class="form-check-label" for="optionsRadios3">
         Trigger an ending
@@ -78,7 +81,7 @@
 
   <div class="submit-buttons">
     <button type="submit" class="btn btn-success" *ngIf="form.valid">
-      Publish Story
+      {{ editMode ? 'Update' : 'Publish' }}
     </button>
 
     <button
@@ -91,7 +94,7 @@
       title="Your story must have at least one ending before you publish."
       *ngIf="!form.valid"
     >
-      Publish Story
+      {{ editMode ? 'Update' : 'Publish' }}
     </button>
 
     <button
