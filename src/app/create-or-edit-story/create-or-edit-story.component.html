@@ -1,7 +1,7 @@
 <h1 *ngIf="!storyID">Create Story</h1>
 <h1 *ngIf="storyID">Edit Story</h1>
 
-<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
   <fieldset>
     <div class="form-group">
       <label for="title" class="form-label mt-4">Title</label>
@@ -10,8 +10,7 @@
         type="text"
         class="form-control"
         id="title"
-        placeholder="Enter a title for your story"
-        ngModel
+        ngModel="{{ storyToEdit?.title }}"
         required
       />
     </div>
@@ -80,7 +79,7 @@
   </fieldset>
 
   <div class="submit-buttons">
-    <button type="submit" class="btn btn-success" *ngIf="form.valid">
+    <button type="submit" class="btn btn-success" *ngIf="f.valid">
       {{ editMode ? 'Update' : 'Publish' }}
     </button>
 
@@ -92,7 +91,7 @@
       data-toggle="tooltip"
       data-placement="top"
       title="Your story must have at least one ending before you publish."
-      *ngIf="!form.valid"
+      *ngIf="!f.valid"
     >
       {{ editMode ? 'Update' : 'Publish' }}
     </button>

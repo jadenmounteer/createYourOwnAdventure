@@ -17,7 +17,8 @@ export class CreateOrEditStoryComponent implements OnInit {
   public subscription: Subscription | undefined;
   public editedItemIndex: number | undefined;
   public editedItem?: Story;
-  @ViewChild('form') form?: NgForm;
+  public storyToEdit?: Story;
+  @ViewChild('f') storyForm?: NgForm;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,30 +37,22 @@ export class CreateOrEditStoryComponent implements OnInit {
       this.storyID = params['id'];
     });
 
-    console.log(this.storiesService.getStories());
-
-    this.enableEditMode();
-
-    // TODO If we are editing, retreive the story details from the db
+    this.setFormData();
   }
 
-  private enableEditMode() {
+  private setFormData() {
     if (this.storyID) {
-      this.subscription = this.storiesService.startedEditing.subscribe(
-        (index: number) => {
-          this.editedItemIndex = index;
+      this.storiesService.getStories().forEach((story) => {
+        if (this.storyID == story.id) {
           this.editMode = true;
-          this.editedItem = this.storiesService.getStory(index);
-          this.form?.setValue({
-            title: this.editedItem.title,
-          });
+          this.storyToEdit = story;
         }
-      );
+      });
     }
   }
 
-  public onSubmit(form: NgForm) {
-    const value = form.value;
+  public onSubmit(storyForm: NgForm) {
+    const value = storyForm.value;
     const title = value.title;
     console.log('Submitting form for ' + title);
 
