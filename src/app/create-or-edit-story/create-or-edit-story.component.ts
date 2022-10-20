@@ -38,6 +38,7 @@ export class CreateOrEditStoryComponent implements OnInit {
     });
 
     this.setFormData();
+    console.log(this.storyToEdit);
   }
 
   private setFormData() {
