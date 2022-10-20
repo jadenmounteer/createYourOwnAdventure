@@ -12,8 +12,8 @@ export interface Page {
   pageText: string;
   currentPage: Boolean;
   whenReaderFinishesPage: number;
-  choices: Array<Choice> | undefined;
-  nextPage: number | undefined;
+  choices?: Array<Choice> | undefined;
+  nextPage?: number | undefined;
 }
 
 export interface Choice {

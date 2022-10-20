@@ -36,6 +36,8 @@ export class CreateOrEditStoryComponent implements OnInit {
       this.storyID = params['id'];
     });
 
+    console.log(this.storiesService.getStories());
+
     this.enableEditMode();
 
     // TODO If we are editing, retreive the story details from the db
