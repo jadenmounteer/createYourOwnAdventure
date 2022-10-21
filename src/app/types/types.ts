@@ -19,5 +19,5 @@ export interface Page {
 export interface Choice {
   number: number;
   text: string;
-  linksToPage: number | undefined;
+  linksToPage: number | undefined | string;
 }

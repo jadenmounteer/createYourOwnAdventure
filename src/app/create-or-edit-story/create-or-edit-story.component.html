@@ -87,6 +87,28 @@
             value="{{ choice.text }}"
             required
           ></textarea>
+
+          <div class="form-group links-to-page-container">
+            <label
+              for="pageLinkSelect"
+              class="form-label mt-2 links-to-page-label"
+              >Links to page:</label
+            >
+            <select
+              class="form-select links-to-page-select"
+              name="pageLinkSelect"
+              id="pageLinkSelect"
+              [(ngModel)]="choice.linksToPage"
+            >
+              <option
+                *ngFor="let page of storyToEdit?.pages"
+                [selected]="choice.linksToPage === page.pageNumber"
+              >
+                {{ page.pageNumber }}
+              </option>
+              <!-- <option>Link to New Page</option> -->
+            </select>
+          </div>
         </div>
       </div>
     </fieldset>
