@@ -75,6 +75,15 @@
           Trigger an ending
         </label>
       </div>
+
+      <!-- Choices -->
+      <div [hidden]="page.whenReaderFinishesPage !== 2">
+        <div *ngFor="let choice of page.choices">
+          <label for="pageText" class="form-label mt-4"
+            >Choice {{ choice.number }}</label
+          >
+        </div>
+      </div>
     </fieldset>
   </div>
 

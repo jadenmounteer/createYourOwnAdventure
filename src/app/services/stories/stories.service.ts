@@ -24,6 +24,7 @@ export class StoriesService {
           whenReaderFinishesPage: 1,
           choices: [
             {
+              number: 1,
               text: 'Follow the Cpt. Nemo into the Nautilus',
               linksToPage: 2,
             },
@@ -39,10 +40,12 @@ export class StoriesService {
           whenReaderFinishesPage: 2,
           choices: [
             {
+              number: 1,
               text: 'Follow the Cpt. Nemo into the Nautilus',
               linksToPage: 3,
             },
             {
+              number: 2,
               text: 'Refuse and stay on dry land.',
               linksToPage: 4,
             },
@@ -55,10 +58,12 @@ export class StoriesService {
           whenReaderFinishesPage: 1,
           choices: [
             {
+              number: 1,
               text: 'Follow the Cpt. Nemo into the Nautilus',
               linksToPage: 3,
             },
             {
+              number: 2,
               text: 'Refuse and stay on dry land.',
               linksToPage: 5,
             },
