@@ -17,3 +17,10 @@
     flex-direction: row;
   }
 }
+
+.choice-input {
+  height: 20px;
+  @include breakpoint(medium) {
+    max-width: 50%;
+  }
+}

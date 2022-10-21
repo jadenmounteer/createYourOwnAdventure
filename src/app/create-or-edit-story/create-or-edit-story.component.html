@@ -79,9 +79,14 @@
       <!-- Choices -->
       <div [hidden]="page.whenReaderFinishesPage !== 2">
         <div *ngFor="let choice of page.choices">
-          <label for="pageText" class="form-label mt-4"
-            >Choice {{ choice.number }}</label
-          >
+          <label class="form-label mt-4">Choice {{ choice.number }}</label>
+          <textarea
+            class="form-control choice-input"
+            name="choice{{ choice.number }}"
+            rows="3"
+            value="{{ choice.text }}"
+            required
+          ></textarea>
         </div>
       </div>
     </fieldset>
