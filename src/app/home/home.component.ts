@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   confirmedDelete() {
     const indexOfStory = this.yourStories.indexOf(this.storyToDelete);
     if (indexOfStory > -1) {
-      this.yourStories.splice(indexOfStory, 1);
+      this.yourStories = this.storiesService.deleteStory(indexOfStory);
     }
 
     // TODO delete from the db as well.

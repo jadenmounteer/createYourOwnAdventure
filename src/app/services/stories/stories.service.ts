@@ -106,4 +106,11 @@ export class StoriesService {
     this.stories[index] = newStory;
     this.storyChanged.next(this.stories.slice());
   }
+
+  public deleteStory(index: number): Array<Story> {
+    // TODO delete the story in the db. If successful, then delete it
+    // on the frontend
+    this.stories.splice(index, 1);
+    return this.stories;
+  }
 }
