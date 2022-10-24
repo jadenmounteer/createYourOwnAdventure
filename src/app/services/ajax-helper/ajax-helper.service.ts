@@ -15,3 +15,13 @@ export class AjaxHelperService {
     return ajax$;
   }
 }
+
+// Example of how to get stories using an observable
+// const storiesObservable = this.ajaxHelper.initializeDummyData();
+
+// storiesObservable.subscribe({
+//   next: (stories) => {
+//     this.yourStories = stories;
+//   },
+//   error: (err) => console.log(err),
+// });

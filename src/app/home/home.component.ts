@@ -4,12 +4,13 @@ import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component'
 import { Story } from '../types/types';
 import { ajax } from 'rxjs/ajax';
 import { AjaxHelperService } from '../services/ajax-helper/ajax-helper.service';
+import { StoriesService } from '../services/stories/stories.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [AjaxHelperService],
+  providers: [StoriesService],
 })
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
@@ -18,17 +19,10 @@ export class HomeComponent implements OnInit {
   public storyToDelete!: Story;
   public confirmModalMessage: string = '';
 
-  constructor(private router: Router, private ajaxHelper: AjaxHelperService) {}
+  constructor(private router: Router, private storiesService: StoriesService) {}
 
   ngOnInit(): void {
-    const storiesObservable = this.ajaxHelper.initializeDummyData();
-
-    storiesObservable.subscribe({
-      next: (stories) => {
-        this.yourStories = stories;
-      },
-      error: (err) => console.log(err),
-    });
+    this.yourStories = this.storiesService.getStories();
   }
 
   public onDeleteStory(story: Story) {
