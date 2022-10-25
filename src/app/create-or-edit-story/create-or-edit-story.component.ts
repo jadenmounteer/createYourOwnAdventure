@@ -104,8 +104,6 @@ export class CreateOrEditStoryComponent implements OnInit {
         page.pageText = event.target.value;
       }
     });
-
-    console.log(this.storyToEdit);
     return;
   }
 }
