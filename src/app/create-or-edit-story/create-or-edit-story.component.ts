@@ -97,4 +97,15 @@ export class CreateOrEditStoryComponent implements OnInit {
       return;
     }
   }
+
+  public onChangePageText(pageNumber: number, event: any): void {
+    this.storyToEdit?.pages.forEach((page) => {
+      if (page.pageNumber === pageNumber) {
+        page.pageText = event.target.value;
+      }
+    });
+
+    console.log(this.storyToEdit);
+    return;
+  }
 }

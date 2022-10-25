@@ -28,6 +28,7 @@
           rows="3"
           value="{{ page.pageText }}"
           required
+          (blur)="onChangePageText(page.pageNumber, $event)"
         ></textarea>
       </div>
 
