@@ -18,6 +18,23 @@ export class CreateOrEditStoryComponent implements OnInit {
   public editedItemIndex: number | undefined;
   public editedItem?: Story;
   public storyToEdit?: Story;
+  public newStory: Story = {
+    id: undefined,
+    userID: undefined,
+    title: undefined,
+    description: undefined,
+    draft: true,
+    pages: [
+      {
+        pageNumber: 1,
+        currentPage: true,
+        pageText: undefined,
+        whenReaderFinishesPage: undefined,
+        choices: undefined,
+        nextPage: undefined,
+      },
+    ],
+  };
   @ViewChild('f') storyForm?: NgForm;
 
   constructor(
@@ -70,5 +87,13 @@ export class CreateOrEditStoryComponent implements OnInit {
 
   public onSaveDraft() {
     console.log('Saving draft');
+  }
+
+  public onChangeTitle() {
+    if (this.storyToEdit) {
+      this.storyToEdit.title = this.storyForm?.value.title;
+      return;
+    }
+    this.newStory.title = this.storyForm?.value.title;
   }
 }

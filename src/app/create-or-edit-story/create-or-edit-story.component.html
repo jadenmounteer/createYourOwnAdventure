@@ -12,6 +12,7 @@
         id="title"
         ngModel="{{ storyToEdit?.title }}"
         required
+        (change)="onChangeTitle()"
       />
     </div>
   </fieldset>

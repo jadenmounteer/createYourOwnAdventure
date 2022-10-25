@@ -1,17 +1,17 @@
 export interface Story {
-  id: number;
-  userID: number;
-  title: string;
-  description: string;
+  id: number | undefined;
+  userID: number | undefined;
+  title: string | undefined;
+  description: string | undefined;
   draft: boolean;
   pages: Array<Page>;
 }
 
 export interface Page {
   pageNumber: number;
-  pageText: string;
+  pageText: string | undefined;
   currentPage: Boolean;
-  whenReaderFinishesPage: number;
+  whenReaderFinishesPage: number | undefined;
   choices?: Array<Choice> | undefined;
   nextPage?: number | undefined;
 }
