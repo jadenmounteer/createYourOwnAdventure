@@ -106,4 +106,13 @@ export class CreateOrEditStoryComponent implements OnInit {
     });
     return;
   }
+
+  public onChangeWhenReaderFinishesPage(pageNumber: number, event: any): void {
+    this.storyToEdit?.pages.forEach((page) => {
+      if (page.pageNumber === pageNumber) {
+        page.whenReaderFinishesPage = event.target.value;
+      }
+    });
+    return;
+  }
 }

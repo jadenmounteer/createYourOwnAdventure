@@ -35,6 +35,8 @@
       <label for="pageText" class="form-label mt-4"
         >When reader finishes the page...</label
       >
+
+      <!-- When user finishes page -->
       <div class="form-check">
         <input
           class="form-check-input"
@@ -44,6 +46,7 @@
           value="1"
           required
           ngModel="{{ page.whenReaderFinishesPage }}"
+          (change)="onChangeWhenReaderFinishesPage(page.pageNumber, $event)"
         />
         <label class="form-check-label" for="{{ page.pageNumber }}">
           Continue to next page
@@ -58,6 +61,7 @@
           value="2"
           required
           ngModel="{{ page.whenReaderFinishesPage }}"
+          (change)="onChangeWhenReaderFinishesPage(page.pageNumber, $event)"
         />
         <label class="form-check-label" for="{{ page.pageNumber }}">
           Make a choice
@@ -71,6 +75,7 @@
           id="{{ page.pageNumber }}3"
           value="3"
           ngModel="{{ page.whenReaderFinishesPage }}"
+          (change)="onChangeWhenReaderFinishesPage(page.pageNumber, $event)"
           required
         />
         <label class="form-check-label" for="{{ page.pageNumber }}">
@@ -79,7 +84,7 @@
       </div>
 
       <!-- Choices -->
-      <div [hidden]="page.whenReaderFinishesPage !== 2">
+      <div *ngIf="page.whenReaderFinishesPage !== 2">
         <div *ngFor="let choice of page.choices">
           <label class="form-label mt-4">Choice {{ choice.number }}</label>
           <textarea
