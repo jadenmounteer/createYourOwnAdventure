@@ -18,6 +18,7 @@ export class CreateOrEditStoryComponent implements OnInit {
   public editedItemIndex: number | undefined;
   public editedItem?: Story;
   public storyToEdit?: Story;
+  public showTestDiv: boolean = true;
   @ViewChild('f') storyForm?: NgForm;
 
   constructor(
@@ -110,9 +111,12 @@ export class CreateOrEditStoryComponent implements OnInit {
   public onChangeWhenReaderFinishesPage(pageNumber: number, event: any): void {
     this.storyToEdit?.pages.forEach((page) => {
       if (page.pageNumber === pageNumber) {
-        page.whenReaderFinishesPage = event.target.value;
+        page.whenReaderFinishesPage = Number(event.target.value);
+        // TODO Add a choice to the choice array
       }
     });
     return;
   }
+
+  public addChoice() {}
 }
