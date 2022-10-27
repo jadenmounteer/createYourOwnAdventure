@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { StoriesService } from '../services/stories/stories.service';
-import { Story } from '../types/types';
+import { Choice, Page, Story } from '../types/types';
 declare var $: any; // For Jquery
 
 @Component({
@@ -113,10 +113,31 @@ export class CreateOrEditStoryComponent implements OnInit {
       if (page.pageNumber === pageNumber) {
         page.whenReaderFinishesPage = Number(event.target.value);
         // TODO Add a choice to the choice array
+        this.addChoice(page);
       }
     });
     return;
   }
 
-  public addChoice() {}
+  public addChoice(page: Page) {
+    let newChoice: Choice = {
+      number: this.getChoiceNumber(page),
+      text: '',
+      linksToPage: undefined,
+    };
+
+    if (page.choices === undefined) {
+      page.choices = [newChoice];
+    } else {
+      page.choices?.push(newChoice);
+    }
+    console.log(page.choices);
+  }
+
+  private getChoiceNumber(page: Page): number {
+    if (page.choices) {
+      return page.choices.length + 1;
+    }
+    return 1;
+  }
 }
