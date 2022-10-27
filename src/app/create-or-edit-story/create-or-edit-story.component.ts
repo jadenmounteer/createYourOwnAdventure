@@ -112,8 +112,9 @@ export class CreateOrEditStoryComponent implements OnInit {
     this.storyToEdit?.pages.forEach((page) => {
       if (page.pageNumber === pageNumber) {
         page.whenReaderFinishesPage = Number(event.target.value);
-        // TODO Add a choice to the choice array
-        this.addChoice(page);
+        if (!page.choices) {
+          this.addChoice(page);
+        }
       }
     });
     return;

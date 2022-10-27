@@ -118,18 +118,26 @@
             </button>
           </div>
         </div>
+        <br />
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          (click)="addChoice(page)"
+        >
+          Add Choice &plus;
+        </button>
       </div>
     </fieldset>
   </div>
 
   <div class="submit-buttons">
-    <button type="submit" class="btn btn-success" *ngIf="f.valid">
+    <button type="submit" class="btn btn-success btn-lg" *ngIf="f.valid">
       {{ editMode ? 'Update' : 'Publish' }}
     </button>
 
     <button
       type="button"
-      class="btn btn-success disabled"
+      class="btn btn-success disabled btn-lg"
       data-bs-toggle="tooltip"
       data-bs-placement="top"
       data-toggle="tooltip"
@@ -142,7 +150,7 @@
 
     <button
       type="submit"
-      class="btn btn-primary"
+      class="btn btn-primary btn-lg"
       data-bs-toggle="tooltip"
       data-bs-placement="top"
       data-toggle="tooltip"
