@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { Story } from '../types/types';
-import { ajax } from 'rxjs/ajax';
-import { AjaxHelperService } from '../services/ajax-helper/ajax-helper.service';
 import { StoriesService } from '../services/stories/stories.service';
 
 @Component({

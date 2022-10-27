@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoriesService } from './services/stories/stories.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'createYourOwnAdventure';
   closeResult: string | undefined;
-  constructor() {}
+
+  constructor(private storiesService: StoriesService) {
+    this.initializeAppData();
+  }
+
+  private initializeAppData(): void {
+    this.storiesService.fetchStories();
+  }
 }

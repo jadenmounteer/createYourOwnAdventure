@@ -12,6 +12,7 @@ import { CreateOrEditStoryComponent } from './create-or-edit-story/create-or-edi
 import { RouterModule, Routes } from '@angular/router';
 import { ReadStoryComponent } from './read-story/read-story.component';
 import { FormsModule } from '@angular/forms';
+import { StoriesService } from './services/stories/stories.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
   ],
-  providers: [],
+  providers: [StoriesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
