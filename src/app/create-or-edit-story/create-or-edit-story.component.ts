@@ -132,7 +132,6 @@ export class CreateOrEditStoryComponent implements OnInit {
     } else {
       page.choices?.push(newChoice);
     }
-    console.log(page.choices);
   }
 
   private getChoiceNumber(page: Page): number {
