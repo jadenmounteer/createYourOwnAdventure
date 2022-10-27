@@ -1,5 +1,12 @@
-<h1 *ngIf="!storyID">Create Story</h1>
-<h1 *ngIf="storyID">Edit Story</h1>
+<div class="page-header">
+  <div class="page-title">
+    <h1 *ngIf="!storyID">Create Story</h1>
+    <h1 *ngIf="storyID">Edit Story</h1>
+  </div>
+  <div class="story-stats">
+    <p class="text-muted">Total Pages: {{ storyToEdit?.pages?.length }}</p>
+  </div>
+</div>
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
   <fieldset>
@@ -16,6 +23,7 @@
       />
     </div>
   </fieldset>
+
   <div *ngFor="let page of this.storyToEdit?.pages">
     <hr />
     <legend>{{ 'Page: ' + page.pageNumber }}</legend>
