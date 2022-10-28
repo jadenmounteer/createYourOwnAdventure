@@ -13,6 +13,10 @@ export class AppComponent {
 
   constructor(private storiesService: StoriesService) {
     this.initializeAppData();
+
+    // setTimeout(() => {
+    //   console.log(this.storiesService.getStories());
+    // }, 1000);
   }
 
   private initializeAppData(): void {

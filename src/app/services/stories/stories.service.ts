@@ -90,7 +90,9 @@ export class StoriesService {
 
   private stories: Story[] = new Array<Story>();
 
-  constructor(private ajaxHelper: AjaxHelperService) {}
+  constructor(private ajaxHelper: AjaxHelperService) {
+    console.log('New instance of stories service created');
+  }
 
   public getStories() {
     return this.stories.slice();

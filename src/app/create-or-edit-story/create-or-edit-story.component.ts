@@ -10,7 +10,6 @@ declare var $: any; // For Jquery
   selector: 'app-create-or-edit-story',
   templateUrl: './create-or-edit-story.component.html',
   styleUrls: ['./create-or-edit-story.component.scss'],
-  providers: [StoriesService],
 })
 export class CreateOrEditStoryComponent implements OnInit {
   public editMode: boolean = false;

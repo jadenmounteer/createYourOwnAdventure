@@ -8,7 +8,6 @@ import { StoriesService } from '../services/stories/stories.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [StoriesService],
 })
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
@@ -22,6 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.yourStories = this.storiesService.getStories();
     console.log('Initialized home component');
+    console.log(this.yourStories);
   }
 
   public onDeleteStory(story: Story) {
