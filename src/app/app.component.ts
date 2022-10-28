@@ -12,11 +12,11 @@ export class AppComponent {
   closeResult: string | undefined;
 
   constructor(private storiesService: StoriesService) {
+    // TODO we eventually want to make the data not initialize until the user succeffully logs in.
+    // TODO I also have another problem. How do I successfully reload the data in the app
+    // on page reload?
+    // I need to use local storage: https://www.youtube.com/watch?v=amdlyRpNiLw
     this.initializeAppData();
-
-    // setTimeout(() => {
-    //   console.log(this.storiesService.getStories());
-    // }, 1000);
   }
 
   private initializeAppData(): void {
