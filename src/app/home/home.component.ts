@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.yourStories = this.storiesService.getStories();
+    console.log('Initialized home component');
   }
 
   public onDeleteStory(story: Story) {

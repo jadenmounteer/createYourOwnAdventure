@@ -12,10 +12,14 @@ import { CreateOrEditStoryComponent } from './create-or-edit-story/create-or-edi
 import { RouterModule, Routes } from '@angular/router';
 import { ReadStoryComponent } from './read-story/read-story.component';
 import { FormsModule } from '@angular/forms';
-import { StoriesService } from './services/stories/stories.service';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginPageComponent },
+  {
+    path: 'homePage',
+    component: HomeComponent,
+  },
   {
     path: 'createOrEditStory/:id',
     component: CreateOrEditStoryComponent,
@@ -38,6 +42,7 @@ const appRoutes: Routes = [
     ConfirmModalComponent,
     CreateOrEditStoryComponent,
     ReadStoryComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
   ],
-  providers: [StoriesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

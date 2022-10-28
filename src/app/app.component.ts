@@ -5,6 +5,7 @@ import { StoriesService } from './services/stories/stories.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [StoriesService],
 })
 export class AppComponent {
   title = 'createYourOwnAdventure';

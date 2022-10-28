@@ -19,6 +19,7 @@ export class CreateOrEditStoryComponent implements OnInit {
   public editedItem?: Story;
   public storyToEdit?: Story;
   public showTestDiv: boolean = true;
+  public yourStories: Array<Story> = [];
   @ViewChild('f') storyForm?: NgForm;
 
   constructor(

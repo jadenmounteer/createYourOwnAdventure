@@ -123,7 +123,7 @@ export class StoriesService {
     storiesObservable.subscribe({
       next: (stories) => {
         this.stories = stories;
-        console.log(this.stories);
+        console.log('Initiltialized stories in service');
       },
       error: (err) => console.log(err),
     });
