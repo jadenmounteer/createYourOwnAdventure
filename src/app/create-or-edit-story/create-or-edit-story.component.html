@@ -135,7 +135,11 @@
                 {{ page.pageNumber }}
               </option>
             </select>
-            <button type="button" class="btn btn-primary">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="linkToNewPage()"
+            >
               Link to new page &plus;
             </button>
           </div>

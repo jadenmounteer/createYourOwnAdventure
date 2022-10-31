@@ -203,4 +203,8 @@ export class CreateOrEditStoryComponent implements OnInit {
     );
     this.storyToEdit?.pages.splice(Number(indexOfPageToDelete), 1);
   }
+
+  public linkToNewPage() {
+    this.addPage();
+  }
 }
