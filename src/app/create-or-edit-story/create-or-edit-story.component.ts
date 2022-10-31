@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { StoriesService } from '../services/stories/stories.service';
 import { Choice, Page, Story } from '../types/types';
 declare var $: any; // For Jquery
@@ -20,6 +21,9 @@ export class CreateOrEditStoryComponent implements OnInit {
   public showTestDiv: boolean = true;
   public yourStories: Array<Story> = [];
   @ViewChild('f') storyForm?: NgForm;
+  @ViewChild('confirmModal') confirmModal!: ConfirmModalComponent;
+  public confirmModalMessage: string = '';
+  private pageToDelete!: Page;
 
   constructor(
     private route: ActivatedRoute,
@@ -153,4 +157,12 @@ export class CreateOrEditStoryComponent implements OnInit {
 
     this.storyToEdit?.pages.push(newPage);
   }
+
+  public onDeletePage(pageToDelete: Page) {
+    this.pageToDelete = pageToDelete;
+    this.confirmModalMessage = `Are you sure you want to delete page number ${pageToDelete.pageNumber}?`;
+    this.confirmModal.open();
+  }
+
+  public confirmDeletePage() {}
 }
