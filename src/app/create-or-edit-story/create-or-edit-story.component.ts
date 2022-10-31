@@ -206,5 +206,7 @@ export class CreateOrEditStoryComponent implements OnInit {
 
   public linkToNewPage() {
     this.addPage();
+
+    // TODO make select box select the new page number
   }
 }
