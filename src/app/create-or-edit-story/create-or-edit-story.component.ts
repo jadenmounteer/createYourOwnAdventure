@@ -147,7 +147,7 @@ export class CreateOrEditStoryComponent implements OnInit {
 
   public addPage() {
     const newPage: Page = {
-      pageNumber: Number(this.storyToEdit?.pages.length) + 1,
+      pageNumber: this.configureNewPageNumber(),
       pageText: undefined,
       currentPage: false,
       whenReaderFinishesPage: undefined,
@@ -156,6 +156,39 @@ export class CreateOrEditStoryComponent implements OnInit {
     };
 
     this.storyToEdit?.pages.push(newPage);
+  }
+
+  private configureNewPageNumber(): number {
+    let listOfPageNumbers = this.createArrayOfPageNumbers();
+    return this.findPageNumberFromListOfNumbers(listOfPageNumbers);
+  }
+
+  private findPageNumberFromListOfNumbers(
+    listOfNumbers: Array<number>
+  ): number {
+    let sortedListOfNumbers = listOfNumbers.sort(this.numberSorter);
+    let numberToCheck = 1;
+
+    for (let i = 0; i < sortedListOfNumbers.length; i++) {
+      if (numberToCheck !== sortedListOfNumbers[i]) {
+        return numberToCheck;
+      }
+      numberToCheck++;
+    }
+    return numberToCheck;
+  }
+
+  private numberSorter(a: number, b: number) {
+    return a - b;
+  }
+
+  private createArrayOfPageNumbers(): Array<number> {
+    let arrayOfPageNumnbers: Array<number> = [];
+
+    this.storyToEdit?.pages.forEach((page) => {
+      arrayOfPageNumnbers.push(page.pageNumber);
+    });
+    return arrayOfPageNumnbers;
   }
 
   public onDeletePage(pageToDelete: Page) {
