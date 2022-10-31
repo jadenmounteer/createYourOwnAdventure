@@ -143,7 +143,7 @@ export class CreateOrEditStoryComponent implements OnInit {
 
   public addPage() {
     const newPage: Page = {
-      pageNumber: 3,
+      pageNumber: Number(this.storyToEdit?.pages.length) + 1,
       pageText: undefined,
       currentPage: false,
       whenReaderFinishesPage: undefined,
