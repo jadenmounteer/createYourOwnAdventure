@@ -140,4 +140,17 @@ export class CreateOrEditStoryComponent implements OnInit {
     }
     return 1;
   }
+
+  public addPage() {
+    const newPage: Page = {
+      pageNumber: 3,
+      pageText: undefined,
+      currentPage: false,
+      whenReaderFinishesPage: undefined,
+      choices: undefined,
+      nextPage: undefined,
+    };
+
+    this.storyToEdit?.pages.push(newPage);
+  }
 }

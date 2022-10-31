@@ -138,6 +138,11 @@
     </fieldset>
   </div>
 
+  <br />
+  <button type="button" class="btn btn-primary" (click)="addPage()">
+    Add Page &plus;
+  </button>
+
   <div class="submit-buttons">
     <button type="submit" class="btn btn-success btn-lg" *ngIf="f.valid">
       {{ editMode ? 'Update' : 'Publish' }}
