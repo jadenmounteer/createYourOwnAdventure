@@ -26,7 +26,10 @@
 
   <div *ngFor="let page of this.storyToEdit?.pages">
     <hr />
-    <legend>{{ 'Page: ' + page.pageNumber }}</legend>
+    <div class="story-page-header">
+      <legend>{{ 'Page: ' + page.pageNumber }}</legend>
+      <fa-icon class="delete-page-button" [icon]="['fas', 'trash']"></fa-icon>
+    </div>
     <fieldset>
       <div class="form-group">
         <label for="pageText" class="form-label mt-4">Page Text</label>

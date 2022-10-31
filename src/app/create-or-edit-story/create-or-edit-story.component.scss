@@ -38,8 +38,14 @@
 .story-stats {
 }
 
-.page-header {
+.page-header,
+.story-page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.delete-page-button {
+  color: #cc0000;
+  cursor: pointer;
 }

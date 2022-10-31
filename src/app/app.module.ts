@@ -17,8 +17,7 @@ import {
   FaIconLibrary,
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
-import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const appRoutes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -62,6 +61,6 @@ const appRoutes: Routes = [
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(fasStar, farStar);
+    library.addIcons(faTrash);
   }
 }
