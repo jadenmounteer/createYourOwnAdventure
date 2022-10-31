@@ -164,5 +164,10 @@ export class CreateOrEditStoryComponent implements OnInit {
     this.confirmModal.open();
   }
 
-  public confirmDeletePage() {}
+  public confirmDeletePage() {
+    const indexOfPageToDelete = this.storyToEdit?.pages.indexOf(
+      this.pageToDelete
+    );
+    this.storyToEdit?.pages.splice(Number(indexOfPageToDelete), 1);
+  }
 }
