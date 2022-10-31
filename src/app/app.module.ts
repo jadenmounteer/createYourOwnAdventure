@@ -13,6 +13,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReadStoryComponent } from './read-story/read-story.component';
 import { FormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
 const appRoutes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -50,7 +56,12 @@ const appRoutes: Routes = [
     NgbModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    FontAwesomeModule,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(fasStar, farStar);
+  }
+}
