@@ -211,4 +211,10 @@ export class CreateOrEditStoryComponent implements OnInit {
     this.addPage();
     choice.linksToPage = newPageNumber;
   }
+
+  public linkNextPage(page: Page) {
+    const newPageNumber = this.configureNewPageNumber();
+    this.addPage();
+    page.nextPage = newPageNumber;
+  }
 }
