@@ -163,13 +163,14 @@
         class="form-group links-to-page-container"
         *ngIf="page.whenReaderFinishesPage === 1"
       >
-        <label for="pageLinkSelect" class="form-label mt-2 links-to-page-label"
+        <label for="nextPageSelect" class="form-label mt-2 links-to-page-label"
           >Next page:</label
         >
         <select
           class="form-select links-to-page-select"
-          name="pageLinkSelect"
-          id="pageLinkSelect"
+          name="nextPageSelect"
+          id="nextPageSelect"
+          (change)="onLinkToNextPage($event)"
         >
           <option
             *ngFor="let page of storyToEdit?.pages"

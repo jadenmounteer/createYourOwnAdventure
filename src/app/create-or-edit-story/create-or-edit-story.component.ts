@@ -217,4 +217,10 @@ export class CreateOrEditStoryComponent implements OnInit {
     this.addPage();
     page.nextPage = newPageNumber;
   }
+
+  public onLinkToNextPage(event: any) {
+    const selectedIndex = event.target.options.selectedIndex;
+    const selectedPageNumber = selectedIndex + 1;
+    console.log(selectedPageNumber);
+  }
 }
