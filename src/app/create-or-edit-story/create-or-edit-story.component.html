@@ -131,6 +131,7 @@
               class="form-select links-to-page-select"
               name="pageLinkSelect"
               id="pageLinkSelect"
+              (change)="onLinkToNewPage($event, choice)"
             >
               <option
                 *ngFor="let page of storyToEdit?.pages"

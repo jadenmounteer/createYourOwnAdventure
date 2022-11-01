@@ -233,4 +233,10 @@ export class CreateOrEditStoryComponent implements OnInit {
     const selectedPageNumber = event.target.options[selectedIndex].value;
     page.nextPage = selectedPageNumber;
   }
+
+  public onLinkToNewPage(event: any, choice: Choice) {
+    const selectedIndex = event.target.options.selectedIndex;
+    const selectedPageNumber = event.target.options[selectedIndex].value;
+    choice.linksToPage = selectedPageNumber;
+  }
 }
