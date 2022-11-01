@@ -170,7 +170,7 @@
           class="form-select links-to-page-select"
           name="nextPageSelect"
           id="nextPageSelect"
-          (change)="onLinkToNextPage($event)"
+          (change)="onLinkToNextPage($event, page)"
         >
           <option
             *ngFor="let page of storyToEdit?.pages"
