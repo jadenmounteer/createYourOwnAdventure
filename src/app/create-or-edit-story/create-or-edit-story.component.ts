@@ -203,7 +203,17 @@ export class CreateOrEditStoryComponent implements OnInit {
     const indexOfPageToDelete = this.storyToEdit?.pages.indexOf(
       this.pageToDelete
     );
+    const pageNumberDeleted =
+      this.storyToEdit?.pages[Number(indexOfPageToDelete)].pageNumber;
+
     this.storyToEdit?.pages.splice(Number(indexOfPageToDelete), 1);
+
+    // Loop through the pages and set the next page to undefined if it was deleted
+    this.storyToEdit?.pages.forEach((page) => {
+      if (page.nextPage === pageNumberDeleted) {
+        page.nextPage = undefined;
+      }
+    });
   }
 
   public linkToNewPage(choice: Choice) {
