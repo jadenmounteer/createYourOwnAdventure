@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" name="pageForm">
   <fieldset>
     <div class="form-group">
       <label for="title" class="form-label mt-4">Title</label>
@@ -42,17 +42,20 @@
       ></fa-icon>
     </div>
     <fieldset>
-      <div class="form-group">
-        <label for="pageText" class="form-label mt-4">Page Text</label>
-        <textarea
-          class="form-control"
-          name="pageText"
-          rows="3"
-          value="{{ page.pageText }}"
-          required
-          (blur)="onChangePageText(page.pageNumber, $event)"
-        ></textarea>
-      </div>
+      <label for="pageText{{ page.pageNumber }}" class="form-label mt-4"
+        >Page Text</label
+      >
+      <textarea
+        class="form-control"
+        name="pageText{{ page.pageNumber }}"
+        rows="3"
+        value="{{ page.pageText }}"
+        id="pageText{{ page.pageNumber }}"
+        required
+        (blur)="onChangePageText(page.pageNumber, $event)"
+        form="pageForm"
+        #pageText
+      ></textarea>
 
       <label for="pageText" class="form-label mt-4"
         >When reader finishes the page...</label
@@ -63,7 +66,7 @@
         <input
           class="form-check-input"
           type="radio"
-          name="{{ page.pageNumber }}"
+          name="whenReaderFinishesPage{{ page.pageNumber }}"
           id="optionsRadios1"
           value="1"
           required
@@ -78,7 +81,7 @@
         <input
           class="form-check-input"
           type="radio"
-          name="{{ page.pageNumber }}"
+          name="whenReaderFinishesPage{{ page.pageNumber }}"
           id="optionsRadios2"
           value="2"
           required
@@ -93,7 +96,7 @@
         <input
           class="form-check-input"
           type="radio"
-          name="{{ page.pageNumber }}"
+          name="whenReaderFinishesPage{{ page.pageNumber }}"
           id="{{ page.pageNumber }}3"
           value="3"
           ngModel="{{ page.whenReaderFinishesPage }}"
@@ -138,7 +141,7 @@
             <button
               type="button"
               class="btn btn-primary"
-              (click)="linkToNewPage()"
+              (click)="linkToNewPage(choice)"
             >
               Link to new page &plus;
             </button>

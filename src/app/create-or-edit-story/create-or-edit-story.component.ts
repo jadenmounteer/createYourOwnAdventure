@@ -94,6 +94,8 @@ export class CreateOrEditStoryComponent implements OnInit {
 
   public onSaveDraft() {
     console.log('Saving draft');
+    // TODO For some reason the form won't find the text area.
+    // I'll have to access the story to edit value
   }
 
   public onChangeTitle(): void {
@@ -204,9 +206,9 @@ export class CreateOrEditStoryComponent implements OnInit {
     this.storyToEdit?.pages.splice(Number(indexOfPageToDelete), 1);
   }
 
-  public linkToNewPage() {
+  public linkToNewPage(choice: Choice) {
+    const newPageNumber = this.configureNewPageNumber();
     this.addPage();
-
-    // TODO make select box select the new page number
+    choice.linksToPage = newPageNumber;
   }
 }
