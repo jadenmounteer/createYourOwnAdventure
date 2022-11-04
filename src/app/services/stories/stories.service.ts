@@ -112,9 +112,14 @@ export class StoriesService {
     this.storyChanged.next(this.stories.slice());
   }
 
-  public updateStory(index: number, newStory: Story) {
-    this.stories[index] = newStory;
-    this.storyChanged.next(this.stories.slice());
+  public updateStory(storyID: number | undefined, newStory: Story) {
+    if (storyID) {
+      const indexOfStory = this.getIndexOfStoryBasedOnId(storyID);
+      if (indexOfStory != null) {
+        this.stories[indexOfStory] = newStory;
+        this.storyChanged.next(this.stories.slice());
+      }
+    }
   }
 
   public deleteStory(index: number): Array<Story> {
@@ -136,7 +141,7 @@ export class StoriesService {
     });
   }
 
-  private getIndexOfStoryBasedOnId(storyID: number): number | null {
+  public getIndexOfStoryBasedOnId(storyID: number): number | null {
     for (let i = 0; i < this.stories.length; i++) {
       console.log(`Checking if ${this.stories[i].id} === ${storyID}`);
       if (Number(this.stories[i].id) === Number(storyID)) {

@@ -85,8 +85,8 @@ export class CreateOrEditStoryComponent implements OnInit {
     if (this.editMode) {
       storyID = this.storyToEdit?.id;
     }
+    // TODO determine the story ID if it is new
 
-    // TODO determine the story ID
     const newStory: Story = {
       id: storyID,
       userID: undefined,
@@ -98,13 +98,11 @@ export class CreateOrEditStoryComponent implements OnInit {
 
     // TODO Determine if it should be a draft
 
-    // TODO Finish this. Watch the video #222 in the course.
     if (this.editMode) {
-      // this.storiesService.updateStory(this.editedItemIndex, newStory);
+      this.storiesService.updateStory(this.storyID, newStory);
     } else {
       this.storiesService.addStory(newStory);
     }
-    // TODO Save the pages and organize them into a story
   }
 
   public onSaveDraft() {
