@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { StoriesService } from '../services/stories/stories.service';
@@ -27,7 +27,8 @@ export class CreateOrEditStoryComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private storiesService: StoriesService
+    private storiesService: StoriesService,
+    private router: Router
   ) {
     // Initialize the tooltips using jquery. Not sure why, but we have to do this.
     $(function () {
@@ -79,7 +80,6 @@ export class CreateOrEditStoryComponent implements OnInit {
   public onSubmit(storyForm: NgForm) {
     const value = storyForm.value;
     const title = value.title;
-    console.log('Submitting form for ' + title);
     let storyID = undefined;
 
     if (this.editMode) {
@@ -103,6 +103,7 @@ export class CreateOrEditStoryComponent implements OnInit {
     } else {
       this.storiesService.addStory(newStory);
     }
+    this.router.navigate([`homePage`]);
   }
 
   public onSaveDraft() {
