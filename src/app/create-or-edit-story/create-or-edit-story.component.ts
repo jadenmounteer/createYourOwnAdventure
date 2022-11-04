@@ -80,14 +80,29 @@ export class CreateOrEditStoryComponent implements OnInit {
     const value = storyForm.value;
     const title = value.title;
     console.log('Submitting form for ' + title);
+    let storyID = undefined;
 
-    // const newStory = new Story(value.title);
+    if (this.editMode) {
+      storyID = this.storyToEdit?.id;
+    }
+
+    // TODO determine the story ID
+    const newStory: Story = {
+      id: storyID,
+      userID: undefined,
+      title: title,
+      description: this.storyToEdit?.description, // TODO Make it so that the user can edit this
+      draft: false,
+      pages: this.storyToEdit!.pages,
+    };
+
+    // TODO Determine if it should be a draft
 
     // TODO Finish this. Watch the video #222 in the course.
     if (this.editMode) {
       // this.storiesService.updateStory(this.editedItemIndex, newStory);
     } else {
-      // this.storiesService.addStory(newStory);
+      this.storiesService.addStory(newStory);
     }
     // TODO Save the pages and organize them into a story
   }
