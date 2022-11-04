@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { AjaxHelperService } from '../services/ajax-helper/ajax-helper.service';
 import { PreviousPagesService } from '../services/previous-pages/previous-pages.service';
+import { StoriesService } from '../services/stories/stories.service';
 import { Choice, Page, Story } from '../types/types';
 
 @Component({
   selector: 'app-read-story',
   templateUrl: './read-story.component.html',
   styleUrls: ['./read-story.component.scss'],
-  providers: [AjaxHelperService],
 })
 export class ReadStoryComponent implements OnInit {
   public story: Story | undefined;
@@ -21,8 +20,8 @@ export class ReadStoryComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private ajaxHelper: AjaxHelperService,
-    public previousPages: PreviousPagesService<Page>
+    public previousPages: PreviousPagesService<Page>,
+    private storiesService: StoriesService
   ) {}
 
   ngOnInit(): void {
@@ -32,20 +31,9 @@ export class ReadStoryComponent implements OnInit {
       this.storyID = params['id'];
     });
 
-    const storiesObservable = this.ajaxHelper.initializeDummyData();
-
-    storiesObservable.subscribe({
-      next: (stories) => {
-        stories.forEach((story) => {
-          if (story.id === Number(this.storyID)) {
-            this.story = story;
-            this.findCurrentPage(story);
-            this.determineWhatToDoWhenReaderFinishesPage();
-          }
-        });
-      },
-      error: (err) => console.log(err),
-    });
+    this.story = this.storiesService.getStory(this.storyID);
+    if (this.story) this.findCurrentPage(this.story);
+    this.determineWhatToDoWhenReaderFinishesPage();
   }
 
   private findCurrentPage(story: Story) {

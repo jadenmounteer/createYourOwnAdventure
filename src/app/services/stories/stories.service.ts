@@ -96,8 +96,15 @@ export class StoriesService {
     return this.stories.slice();
   }
 
-  public getStory(index: number) {
-    return this.stories[index];
+  public getStory(storyId: number | undefined) {
+    if (storyId) {
+      const indexOfStory = this.getIndexOfStoryBasedOnId(storyId);
+      if (indexOfStory != null) {
+        return this.stories[indexOfStory];
+      }
+    }
+
+    return;
   }
 
   public addStory(story: Story) {
@@ -127,5 +134,17 @@ export class StoriesService {
       },
       error: (err) => console.log(err),
     });
+  }
+
+  private getIndexOfStoryBasedOnId(storyID: number): number | null {
+    for (let i = 0; i < this.stories.length; i++) {
+      console.log(`Checking if ${this.stories[i].id} === ${storyID}`);
+      if (Number(this.stories[i].id) === Number(storyID)) {
+        console.log('We have a match!');
+        return i;
+      }
+    }
+    console.log("Couldn't find a match");
+    return null;
   }
 }
