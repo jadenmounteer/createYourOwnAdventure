@@ -19,7 +19,14 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private storiesService: StoriesService) {}
 
   ngOnInit(): void {
-    this.yourStories = this.storiesService.getStories();
+    if (this.storiesService.storiesInitialized) {
+      this.yourStories = this.storiesService.getStories();
+    } else {
+      this.storiesService.fetchStories();
+      setTimeout(() => {
+        this.yourStories = this.storiesService.getStories();
+      }, 0);
+    }
   }
 
   public onDeleteStory(story: Story) {
