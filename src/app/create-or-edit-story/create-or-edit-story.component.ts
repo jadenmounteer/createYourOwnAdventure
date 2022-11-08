@@ -97,7 +97,7 @@ export class CreateOrEditStoryComponent implements OnInit {
       pages: this.storyToEdit!.pages,
     };
 
-    // TODO Determine if it should be a draft
+    // TODO Now I need to make the next page and choice text save.
 
     if (this.editMode) {
       this.storiesService.updateStory(this.storyID, newStory);
