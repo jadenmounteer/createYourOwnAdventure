@@ -84,8 +84,9 @@ export class CreateOrEditStoryComponent implements OnInit {
 
     if (this.editMode) {
       storyID = this.storyToEdit?.id;
+    } else {
+      storyID = this.storiesService.generateNewStoryID();
     }
-    // TODO determine the story ID if it is new
 
     const newStory: Story = {
       id: storyID,

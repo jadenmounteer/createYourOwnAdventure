@@ -65,13 +65,30 @@ export class StoriesService {
 
   public getIndexOfStoryBasedOnId(storyID: number): number | null {
     for (let i = 0; i < this.stories.length; i++) {
-      console.log(`Checking if ${this.stories[i].id} === ${storyID}`);
       if (Number(this.stories[i].id) === Number(storyID)) {
-        console.log('We have a match!');
         return i;
       }
     }
-    console.log("Couldn't find a match");
     return null;
+  }
+
+  public generateNewStoryID(): number {
+    // This just generates a random number.
+    // In the future, MongoDB will create a unique ID for us.
+    let randomNumber = Math.floor(Math.random() * 1000);
+
+    let generatedUniqueNumber = true;
+
+    for (let i = 0; i < this.stories.length; i++) {
+      if (Number(this.stories[i].id) === Number(randomNumber)) {
+        generatedUniqueNumber = false;
+      }
+    }
+
+    if (!generatedUniqueNumber) {
+      return this.generateNewStoryID();
+    } else {
+      return randomNumber;
+    }
   }
 }
