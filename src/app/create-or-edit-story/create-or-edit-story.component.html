@@ -29,6 +29,22 @@
         (change)="onChangeTitle()"
       />
     </div>
+
+    <!-- Description -->
+    <label for="story-description" class="form-label mt-4"
+      >Story Description</label
+    >
+    <textarea
+      class="form-control"
+      name="story-description"
+      rows="3"
+      value="{{ storyToEdit?.description }}"
+      id="story-description"
+      required
+      (blur)="onChangeDescription($event)"
+      form="pageForm"
+      #storyDescription
+    ></textarea>
   </fieldset>
 
   <div *ngFor="let page of this.storyToEdit?.pages">

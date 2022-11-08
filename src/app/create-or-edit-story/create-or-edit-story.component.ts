@@ -128,6 +128,11 @@ export class CreateOrEditStoryComponent implements OnInit {
     return;
   }
 
+  public onChangeDescription(event: any): void {
+    this.storyToEdit!.description = event.target.value;
+    return;
+  }
+
   public onChangeWhenReaderFinishesPage(pageNumber: number, event: any): void {
     this.storyToEdit?.pages.forEach((page) => {
       if (page.pageNumber === pageNumber) {
