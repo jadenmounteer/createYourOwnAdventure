@@ -27,6 +27,7 @@
         ngModel="{{ storyToEdit?.title }}"
         required
         (change)="onChangeTitle()"
+        placeholder="Give your adventure a worthy title."
       />
     </div>
 
@@ -44,6 +45,7 @@
       (blur)="onChangeDescription($event)"
       form="pageForm"
       #storyDescription
+      placeholder="Add a gripping description of your adventure here..."
     ></textarea>
   </fieldset>
 
@@ -71,6 +73,7 @@
         (blur)="onChangePageText(page.pageNumber, $event)"
         form="pageForm"
         #pageText
+        placeholder="Once upon a time..."
       ></textarea>
 
       <label for="pageText" class="form-label mt-4"
@@ -135,6 +138,7 @@
             rows="3"
             value="{{ choice.text }}"
             required
+            placeholder="Describe the choice to be made..."
           ></textarea>
 
           <div class="form-group links-to-page-container">
