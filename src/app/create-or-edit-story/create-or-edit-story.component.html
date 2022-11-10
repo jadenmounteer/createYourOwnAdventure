@@ -139,6 +139,7 @@
             value="{{ choice.text }}"
             required
             placeholder="Describe the choice to be made..."
+            (blur)="onChangeChoiceText(choice, $event)"
           ></textarea>
 
           <div class="form-group links-to-page-container">

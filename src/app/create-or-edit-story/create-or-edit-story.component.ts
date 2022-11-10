@@ -129,6 +129,11 @@ export class CreateOrEditStoryComponent implements OnInit {
     return;
   }
 
+  public onChangeChoiceText(choice: Choice, event: any): void {
+    choice.text = event.target.value;
+    return;
+  }
+
   public onChangeDescription(event: any): void {
     this.storyToEdit!.description = event.target.value;
     return;
