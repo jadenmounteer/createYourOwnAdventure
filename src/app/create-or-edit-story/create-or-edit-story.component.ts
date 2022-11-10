@@ -92,7 +92,7 @@ export class CreateOrEditStoryComponent implements OnInit {
       id: storyID,
       userID: undefined,
       title: title,
-      description: this.storyToEdit?.description, // TODO Make it so that the user can edit this
+      description: this.storyToEdit?.description,
       draft: false,
       pages: this.storyToEdit!.pages,
     };
@@ -251,12 +251,12 @@ export class CreateOrEditStoryComponent implements OnInit {
   public onLinkToNextPage(event: any, page: Page) {
     const selectedIndex = event.target.options.selectedIndex;
     const selectedPageNumber = event.target.options[selectedIndex].value;
-    page.nextPage = selectedPageNumber;
+    page.nextPage = Number(selectedPageNumber);
   }
 
   public onLinkToNewPage(event: any, choice: Choice) {
     const selectedIndex = event.target.options.selectedIndex;
     const selectedPageNumber = event.target.options[selectedIndex].value;
-    choice.linksToPage = selectedPageNumber;
+    choice.linksToPage = Number(selectedPageNumber);
   }
 }
