@@ -20,6 +20,7 @@ import {
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     ReadStoryComponent,
     LoginPageComponent,
     AuthComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
