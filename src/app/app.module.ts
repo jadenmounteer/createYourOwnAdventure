@@ -18,6 +18,7 @@ import {
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
     path: 'readStory/:id',
     component: ReadStoryComponent,
   },
+  {
+    path: 'auth',
+    component: AuthComponent,
+  },
 ];
 @NgModule({
   declarations: [
@@ -48,6 +53,7 @@ const appRoutes: Routes = [
     CreateOrEditStoryComponent,
     ReadStoryComponent,
     LoginPageComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
