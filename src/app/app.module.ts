@@ -19,6 +19,7 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { AuthComponent } from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   bootstrap: [AppComponent],
 })
