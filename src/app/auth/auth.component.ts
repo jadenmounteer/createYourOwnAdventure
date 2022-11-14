@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth-service/auth.service';
 export class AuthComponent implements OnInit {
   isLoginMode: boolean = true;
   isLoading: boolean = false;
+  error: string = '';
 
   constructor(private authService: AuthService) {}
 
@@ -39,6 +40,7 @@ export class AuthComponent implements OnInit {
         },
         (error) => {
           console.log(error);
+          this.error = 'An error occured!';
           this.isLoading = false;
         }
       );
