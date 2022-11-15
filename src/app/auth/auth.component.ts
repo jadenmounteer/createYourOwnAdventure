@@ -25,6 +25,8 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.errorMessage = '';
+
     if (!form.valid) {
       return;
     }
