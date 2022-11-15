@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { environment } from '../../../environment/environment';
+import { environment } from '../../../environments/environment';
 
 export interface AuthResponseData {
   idToken: string;
@@ -19,13 +19,13 @@ export interface AuthResponseData {
 export class AuthService {
   private apiKey = environment.apiKey;
   constructor(private http: HttpClient) {
-    console.log(`API Key: ${this.apiKey}`);
+    console.log(environment);
   }
 
   public signup(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDn8j4BaTdv63f1xxvIpGL37h9Q6CSgMrQ',
+        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`,
 
         {
           email: email,
@@ -39,7 +39,7 @@ export class AuthService {
   public login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDn8j4BaTdv63f1xxvIpGL37h9Q6CSgMrQ',
+        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`,
         {
           email: email,
           password: password,

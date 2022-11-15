@@ -73,8 +73,8 @@ typings/
 .env.test
 
 # angular environment variables
-src/environment/environment.prod.ts
-src/environment/environment.ts
+src/environments/environment.prod.ts
+src/environments/environment.ts
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
