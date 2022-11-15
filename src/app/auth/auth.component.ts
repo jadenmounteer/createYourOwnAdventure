@@ -42,16 +42,16 @@ export class AuthComponent implements OnInit {
       authObs = this.authService.signup(email, password);
     }
 
-    authObs.subscribe(
-      (resData) => {
+    authObs.subscribe({
+      next: (resData) => {
         console.log(resData);
         this.isLoading = false;
       },
-      (errorMessage) => {
+      error: (errorMessage) => {
         this.errorMessage = errorMessage;
         this.isLoading = false;
-      }
-    );
+      },
+    });
 
     form.reset();
   }
