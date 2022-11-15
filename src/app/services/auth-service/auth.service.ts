@@ -18,9 +18,7 @@ export interface AuthResponseData {
 })
 export class AuthService {
   private apiKey = environment.apiKey;
-  constructor(private http: HttpClient) {
-    console.log(environment);
-  }
+  constructor(private http: HttpClient) {}
 
   public signup(email: string, password: string) {
     return this.http
