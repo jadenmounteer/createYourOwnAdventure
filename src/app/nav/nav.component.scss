@@ -1,8 +1,14 @@
-@import "../scss/main.scss";
+@import '../scss/main.scss';
 
 .container-fluid {
-    @include breakpoint(medium) {
-        margin-left: 80px;
-        margin-right: 80px;
-    }
+  @include breakpoint(medium) {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
