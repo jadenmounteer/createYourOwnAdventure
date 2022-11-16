@@ -21,17 +21,33 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link" routerLink="homePage"
             >Your Stories
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/createOrEditStory">Create Story</a>
+          <a
+            class="nav-link"
+            routerLink="/createOrEditStory"
+            *ngIf="isAuthenticated"
+            >Create Story</a
+          >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/auth">Login/Sign Up</a>
+
+        <li class="nav-item user-list-item">
+          <a class="nav-link user-link">
+            <fa-icon class="logo-icon" [icon]="['fas', 'user']"></fa-icon>
+            <span>{{ userEmail }}</span>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="/auth">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link">Logout</a>
         </li>
       </ul>
     </div>

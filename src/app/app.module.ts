@@ -17,7 +17,12 @@ import {
   FaIconLibrary,
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
-import { faBook, faBookOpen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBook,
+  faBookOpen,
+  faTrash,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
@@ -71,6 +76,6 @@ const appRoutes: Routes = [
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faTrash, faBook, faBookOpen);
+    library.addIcons(faTrash, faBook, faBookOpen, faUser);
   }
 }
