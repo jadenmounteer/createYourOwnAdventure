@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth-service/auth.service';
 export class NavComponent implements OnInit, OnDestroy {
   private userSub!: Subscription;
   public isAuthenticated: boolean = false;
-  public userEmail: string = 'test@test.com';
+  public userEmail: string = '';
 
   constructor(private authService: AuthService) {}
 
