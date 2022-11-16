@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {
   AuthResponseData,
@@ -11,14 +12,12 @@ import {
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   isLoginMode: boolean = true;
   isLoading: boolean = false;
   errorMessage: string = '';
 
-  constructor(private authService: AuthService) {}
-
-  ngOnInit(): void {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -46,8 +45,8 @@ export class AuthComponent implements OnInit {
 
     authObs.subscribe({
       next: (resData) => {
-        console.log(resData);
         this.isLoading = false;
+        this.router.navigate(['/homePage']);
       },
       error: (errorMessage) => {
         this.errorMessage = errorMessage;
