@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Story } from 'src/app/types/types';
@@ -12,7 +13,10 @@ export class StoriesService {
   private stories: Story[] = new Array<Story>();
   public storiesInitialized: boolean = false;
 
-  constructor(private ajaxHelper: AjaxHelperService) {}
+  constructor(
+    private ajaxHelper: AjaxHelperService,
+    private http: HttpClient
+  ) {}
 
   public getStories() {
     return this.stories.slice();
