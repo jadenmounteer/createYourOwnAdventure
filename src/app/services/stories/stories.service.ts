@@ -75,18 +75,14 @@ export class StoriesService {
   }
 
   public fetchStories() {
-    console.log('Fetching stories!');
     return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {
-        // TODO I wonder if this is broken because the documentation changed. I might need to attach the auth parameter differently.
         return this.http.get<Story[]>(
           `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json?auth=${user.token}`
         );
       }),
       tap((stories) => {
-        console.log('Received stories');
-        console.log(stories);
         this.setStories(stories);
       })
     );
