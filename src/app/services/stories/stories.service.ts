@@ -66,13 +66,29 @@ export class StoriesService {
       });
   }
 
+  public fetchStories() {
+    this.http
+      .get(
+        'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json'
+      )
+      .subscribe((stories) => {
+        console.log(stories);
+        // this.stories = stories;
+        // this.storiesInitialized = true;
+      });
+  }
+
+  private setStories(stories: Story[]) {
+    this.stories = stories;
+    this.storiesInitialized = true;
+  }
+
   public fetchDummyData() {
     const storiesObservable = this.ajaxHelper.initializeDummyData();
 
     storiesObservable.subscribe({
       next: (stories) => {
-        this.stories = stories;
-        this.storiesInitialized = true;
+        this.setStories(stories);
       },
       error: (err) => console.log(err),
     });
