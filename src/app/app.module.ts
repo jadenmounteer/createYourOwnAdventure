@@ -28,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 const appRoutes: Routes = [
-  { path: '', component: LoginPageComponent },
+  { path: '', component: AuthComponent },
   {
     path: 'homePage',
     component: HomeComponent,
