@@ -68,13 +68,11 @@ export class StoriesService {
 
   public fetchStories() {
     this.http
-      .get(
+      .get<Story[]>(
         'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json'
       )
       .subscribe((stories) => {
-        console.log(stories);
-        // this.stories = stories;
-        // this.storiesInitialized = true;
+        this.setStories(stories);
       });
   }
 
