@@ -3,7 +3,10 @@
     <div class="logo-container">
       <fa-icon class="logo-icon" [icon]="['fas', 'book-open']"></fa-icon>
 
-      <a class="navbar-brand" routerLink="homePage"
+      <a class="navbar-brand" routerLink="homePage" *ngIf="isAuthenticated"
+        >Create Your Own Adventure</a
+      >
+      <a class="navbar-brand" *ngIf="!isAuthenticated"
         >Create Your Own Adventure</a
       >
     </div>

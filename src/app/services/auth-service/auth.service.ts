@@ -4,6 +4,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { User } from 'src/app/auth/user.model';
+import { Router } from '@angular/router';
 
 export interface AuthResponseData {
   idToken: string;
@@ -22,7 +23,7 @@ export class AuthService {
   private initialUser = new User('', '', '', '');
   public user = new BehaviorSubject<User>(this.initialUser); // Behavior subjects give subscribers immediate access to the previous emitted value
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   public signup(email: string, password: string) {
     return this.http
@@ -73,6 +74,7 @@ export class AuthService {
 
   public logout() {
     this.user.next(this.initialUser);
+    this.router.navigate(['/auth']);
   }
 
   private handleAuthentication(
