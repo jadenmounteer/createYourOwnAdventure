@@ -9,7 +9,7 @@ import { AuthService } from '../auth-service/auth.service';
   providedIn: 'root',
 })
 export class StoriesService {
-  storyChanged = new Subject<Story[]>();
+  storiesChanged = new Subject<Story[]>();
   startedEditing = new Subject<number>();
   private stories: Story[] = new Array<Story>();
   public storiesInitialized: boolean = false;
@@ -37,7 +37,7 @@ export class StoriesService {
 
   public addStory(story: Story) {
     this.stories.push(story);
-    this.storyChanged.next(this.stories.slice());
+    this.storiesChanged.next(this.stories.slice());
     // TODO We should probably only update one story, but this works for now.
     this.updateAllStories();
   }
@@ -47,7 +47,7 @@ export class StoriesService {
       const indexOfStory = this.getIndexOfStoryBasedOnId(storyID);
       if (indexOfStory != null) {
         this.stories[indexOfStory] = newStory;
-        this.storyChanged.next(this.stories.slice());
+        this.storiesChanged.next(this.stories.slice());
       }
     }
     // TODO We should probably only update one story, but this works for now.
@@ -60,6 +60,8 @@ export class StoriesService {
     this.stories.splice(index, 1);
     // TODO We should probably only update one story, but this works for now.
     this.updateAllStories();
+    this.storiesChanged.next(this.stories.slice());
+
     return this.stories;
   }
 
@@ -94,6 +96,7 @@ export class StoriesService {
     console.log('Setting stories to be stored in the service.');
     this.stories = stories;
     this.storiesInitialized = true;
+    this.storiesChanged.next(this.stories.slice());
   }
 
   public fetchDummyData() {

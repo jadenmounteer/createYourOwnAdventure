@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { Story } from '../types/types';
 import { StoriesService } from '../services/stories/stories.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { StoriesService } from '../services/stories/stories.service';
 })
 export class HomeComponent implements OnInit {
   public yourStories: Array<Story> = [];
+  subscription: Subscription | undefined;
   closeResult: string | undefined;
   @ViewChild('confirmModal') confirmModal!: ConfirmModalComponent;
   public storyToDelete!: Story;
@@ -19,11 +21,9 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private storiesService: StoriesService) {}
 
   ngOnInit(): void {
-    console.log('initializing home component');
     // this.storiesService.fetchDummyData();
     if (this.storiesService.storiesInitialized) {
       this.yourStories = this.storiesService.getStories();
-      console.log('Got stories');
     } else {
       // TODO I shouldn't have to fetch the stories again after the resolver
       this.storiesService.fetchStories().subscribe({
@@ -32,6 +32,14 @@ export class HomeComponent implements OnInit {
         },
       });
     }
+
+    // TODO I can remove everything to do with this subscription
+    this.subscription = this.storiesService.storiesChanged.subscribe(
+      (stories: Story[]) => {
+        this.yourStories = stories;
+      }
+    );
+    this.yourStories = this.storiesService.getStories();
   }
 
   public onDeleteStory(story: Story) {
