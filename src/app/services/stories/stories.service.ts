@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, tap } from 'rxjs';
 import { Story } from 'src/app/types/types';
 import { AjaxHelperService } from '../ajax-helper/ajax-helper.service';
 
@@ -73,13 +73,15 @@ export class StoriesService {
   }
 
   public fetchStories() {
-    this.http
+    return this.http
       .get<Story[]>(
         'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json'
       )
-      .subscribe((stories) => {
-        this.setStories(stories);
-      });
+      .pipe(
+        tap((stories) => {
+          this.setStories(stories);
+        })
+      );
   }
 
   private setStories(stories: Story[]) {

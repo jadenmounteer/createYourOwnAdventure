@@ -32,7 +32,7 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   onGetData() {
-    this.storiesService.fetchStories();
+    this.storiesService.fetchStories().subscribe();
   }
 
   ngOnDestroy(): void {

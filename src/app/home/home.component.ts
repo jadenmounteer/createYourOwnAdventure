@@ -19,16 +19,9 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private storiesService: StoriesService) {}
 
   ngOnInit(): void {
-    if (this.storiesService.storiesInitialized) {
-      this.yourStories = this.storiesService.getStories();
-    } else {
-      // this.storiesService.fetchDummyData();
-      this.storiesService.fetchStories();
-      // TODO I should replace this with a subject observable
-      setTimeout(() => {
-        this.yourStories = this.storiesService.getStories();
-      }, 100);
-    }
+    // this.storiesService.fetchDummyData();
+    this.storiesService.fetchStories();
+    this.yourStories = this.storiesService.getStories();
   }
 
   public onDeleteStory(story: Story) {

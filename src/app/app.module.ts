@@ -26,16 +26,19 @@ import {
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { StoriesResolverService } from './services/stories-resolver.service';
 
 const appRoutes: Routes = [
   { path: '', component: AuthComponent },
   {
     path: 'homePage',
     component: HomeComponent,
+    resolve: [StoriesResolverService], // Resolver runs to make sure observable ends and data is loaded before route is loaded.
   },
   {
     path: 'createOrEditStory/:id',
     component: CreateOrEditStoryComponent,
+    resolve: [StoriesResolverService],
   },
   {
     path: 'createOrEditStory', // Don't pass in an id to get to the create page
@@ -44,6 +47,7 @@ const appRoutes: Routes = [
   {
     path: 'readStory/:id',
     component: ReadStoryComponent,
+    resolve: [StoriesResolverService],
   },
   {
     path: 'auth',
