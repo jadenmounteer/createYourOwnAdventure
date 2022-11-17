@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit {
     } else {
       // this.storiesService.fetchDummyData();
       this.storiesService.fetchStories();
+      // TODO I should replace this with a subject observable
       setTimeout(() => {
         this.yourStories = this.storiesService.getStories();
-      }, 0);
+      }, 100);
     }
   }
 
