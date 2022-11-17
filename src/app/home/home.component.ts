@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
     if (this.storiesService.storiesInitialized) {
       this.yourStories = this.storiesService.getStories();
     } else {
-      this.storiesService.fetchDummyData();
+      // this.storiesService.fetchDummyData();
+      this.storiesService.fetchStories();
       setTimeout(() => {
         this.yourStories = this.storiesService.getStories();
       }, 0);

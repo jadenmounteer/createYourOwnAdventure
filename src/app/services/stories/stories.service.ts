@@ -36,6 +36,8 @@ export class StoriesService {
   public addStory(story: Story) {
     this.stories.push(story);
     this.storyChanged.next(this.stories.slice());
+    // TODO We should probably only update one story, but this works for now.
+    this.updateAllStories();
   }
 
   public updateStory(storyID: number | undefined, newStory: Story) {
@@ -46,12 +48,16 @@ export class StoriesService {
         this.storyChanged.next(this.stories.slice());
       }
     }
+    // TODO We should probably only update one story, but this works for now.
+    this.updateAllStories();
   }
 
   public deleteStory(index: number): Array<Story> {
     // TODO delete the story in the db. If successful, then delete it
     // on the frontend
     this.stories.splice(index, 1);
+    // TODO We should probably only update one story, but this works for now.
+    this.updateAllStories();
     return this.stories;
   }
 
