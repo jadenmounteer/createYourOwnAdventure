@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     if (this.storiesService.storiesInitialized) {
       this.yourStories = this.storiesService.getStories();
     } else {
-      this.storiesService.fetchStories();
+      this.storiesService.fetchDummyData();
       setTimeout(() => {
         this.yourStories = this.storiesService.getStories();
       }, 0);

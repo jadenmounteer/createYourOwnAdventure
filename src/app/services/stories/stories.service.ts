@@ -55,7 +55,7 @@ export class StoriesService {
     return this.stories;
   }
 
-  public fetchStories() {
+  public fetchDummyData() {
     const storiesObservable = this.ajaxHelper.initializeDummyData();
 
     storiesObservable.subscribe({

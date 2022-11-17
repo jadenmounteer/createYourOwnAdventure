@@ -20,6 +20,6 @@ export class AppComponent {
   }
 
   private initializeAppData(): void {
-    this.storiesService.fetchStories();
+    this.storiesService.fetchDummyData();
   }
 }
