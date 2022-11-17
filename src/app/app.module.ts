@@ -24,10 +24,11 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthComponent } from './auth/auth.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { StoriesResolverService } from './services/stories-resolver.service';
 import { StoriesService } from './services/stories/stories.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -77,7 +78,14 @@ const appRoutes: Routes = [
     FontAwesomeModule,
     HttpClientModule,
   ],
-  providers: [StoriesService],
+  providers: [
+    StoriesService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

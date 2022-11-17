@@ -71,17 +71,15 @@ export class StoriesService {
   }
 
   public fetchStories() {
-    return this.authService.user.pipe(
-      take(1),
-      exhaustMap((user) => {
-        return this.http.get<Story[]>(
-          `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json?auth=${user.token}`
-        );
-      }),
-      tap((stories) => {
-        this.setStories(stories);
-      })
-    );
+    return this.http
+      .get<Story[]>(
+        'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json'
+      )
+      .pipe(
+        tap((stories) => {
+          this.setStories(stories);
+        })
+      );
   }
 
   private setStories(stories: Story[]) {
