@@ -7,7 +7,6 @@ import { AuthService } from '../auth-service/auth.service';
 
 @Injectable()
 export class StoriesService {
-  storiesChanged = new Subject<Story[]>();
   startedEditing = new Subject<number>();
   private stories: Story[] = new Array<Story>();
   public storiesInitialized: boolean = false;
@@ -35,7 +34,6 @@ export class StoriesService {
 
   public addStory(story: Story) {
     this.stories.push(story);
-    this.storiesChanged.next(this.stories.slice());
     // TODO We should probably only update one story, but this works for now.
     this.updateAllStories();
   }
@@ -45,7 +43,6 @@ export class StoriesService {
       const indexOfStory = this.getIndexOfStoryBasedOnId(storyID);
       if (indexOfStory != null) {
         this.stories[indexOfStory] = newStory;
-        this.storiesChanged.next(this.stories.slice());
       }
     }
     // TODO We should probably only update one story, but this works for now.
@@ -58,7 +55,6 @@ export class StoriesService {
     this.stories.splice(index, 1);
     // TODO We should probably only update one story, but this works for now.
     this.updateAllStories();
-    this.storiesChanged.next(this.stories.slice());
 
     return this.stories;
   }
@@ -91,7 +87,6 @@ export class StoriesService {
   private setStories(stories: Story[]) {
     this.stories = stories;
     this.storiesInitialized = true;
-    this.storiesChanged.next(this.stories.slice());
   }
 
   public fetchDummyData() {
