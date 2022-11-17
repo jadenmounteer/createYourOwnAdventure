@@ -75,6 +75,7 @@ export class StoriesService {
   }
 
   public fetchStories() {
+    console.log();
     return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {
@@ -91,6 +92,8 @@ export class StoriesService {
   private setStories(stories: Story[]) {
     this.stories = stories;
     this.storiesInitialized = true;
+    console.log('Set stories');
+    console.log(this.getStories());
   }
 
   public fetchDummyData() {

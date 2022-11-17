@@ -20,12 +20,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.storiesService.fetchDummyData();
-    // this.storiesService.fetchStories();
-    console.log('Getting stories in home component');
-    setTimeout(() => {
+    if (this.storiesService.storiesInitialized) {
       this.yourStories = this.storiesService.getStories();
-      console.log(this.yourStories);
-    }, 100);
+    } else {
+      this.storiesService.fetchStories().subscribe({
+        next: (stories) => {
+          this.yourStories = stories;
+        },
+      });
+    }
   }
 
   public onDeleteStory(story: Story) {
