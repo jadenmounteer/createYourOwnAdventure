@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { exhaustMap, Subject, take, tap } from 'rxjs';
 import { Story } from 'src/app/types/types';
@@ -79,13 +79,9 @@ export class StoriesService {
     return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {
-        console.log('In exhaust map');
-        console.log(user.token);
+        // TODO I wonder if this is broken because the documentation changed. I might need to attach the auth parameter differently.
         return this.http.get<Story[]>(
-          'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json',
-          {
-            params: new HttpParams().set('auth', !user.token),
-          }
+          `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json?auth=${user.token}`
         );
       }),
       tap((stories) => {
