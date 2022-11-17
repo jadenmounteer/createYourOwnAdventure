@@ -27,14 +27,6 @@ export class NavComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSaveData() {
-    this.storiesService.updateAllStories();
-  }
-
-  onGetData() {
-    this.storiesService.fetchStories().subscribe();
-  }
-
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
   }
