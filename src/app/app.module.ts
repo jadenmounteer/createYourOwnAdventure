@@ -29,7 +29,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { StoriesResolverService } from './services/stories-resolver.service';
 
 const appRoutes: Routes = [
-  { path: '', component: AuthComponent },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   {
     path: 'homePage',
     component: HomeComponent,
