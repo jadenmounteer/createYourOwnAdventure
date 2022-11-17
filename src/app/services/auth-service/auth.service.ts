@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { Subject, throwError } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { User } from 'src/app/auth/user.model';
 
@@ -19,7 +19,8 @@ export interface AuthResponseData {
 })
 export class AuthService {
   private apiKey = environment.apiKey;
-  public user = new Subject<User>();
+  private initialUser = new User('', '', '', '');
+  public user = new BehaviorSubject<User>(this.initialUser); // Behavior subjects give subscribers immediate access to the previous emitted value
 
   constructor(private http: HttpClient) {}
 

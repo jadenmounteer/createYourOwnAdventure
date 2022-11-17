@@ -21,6 +21,6 @@ export class AppComponent {
 
   private initializeAppData(): void {
     // this.storiesService.fetchDummyData();
-    this.storiesService.fetchStories().subscribe();
+    // this.storiesService.fetchStories().subscribe();
   }
 }

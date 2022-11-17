@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.storiesService.fetchDummyData();
-    this.storiesService.fetchStories();
-    this.yourStories = this.storiesService.getStories();
+    // this.storiesService.fetchStories();
+    // this.yourStories = this.storiesService.getStories();
   }
 
   public onDeleteStory(story: Story) {

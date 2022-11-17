@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, tap } from 'rxjs';
+import { exhaustMap, Subject, take, tap } from 'rxjs';
 import { Story } from 'src/app/types/types';
 import { AjaxHelperService } from '../ajax-helper/ajax-helper.service';
+import { AuthService } from '../auth-service/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class StoriesService {
 
   constructor(
     private ajaxHelper: AjaxHelperService,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) {}
 
   public getStories() {
@@ -73,15 +75,24 @@ export class StoriesService {
   }
 
   public fetchStories() {
-    return this.http
-      .get<Story[]>(
-        'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json'
-      )
-      .pipe(
-        tap((stories) => {
-          this.setStories(stories);
-        })
-      );
+    console.log('Fetching stories!');
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap((user) => {
+        console.log('In exhaust map');
+        console.log(user.token);
+        return this.http.get<Story[]>(
+          'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json',
+          {
+            params: new HttpParams().set('auth', !user.token),
+          }
+        );
+      }),
+      tap((stories) => {
+        console.log('Received stories');
+        this.setStories(stories);
+      })
+    );
   }
 
   private setStories(stories: Story[]) {
