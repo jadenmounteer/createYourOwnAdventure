@@ -46,7 +46,6 @@ export class AuthComponent {
     authObs.subscribe({
       next: (resData) => {
         this.isLoading = false;
-        console.log('Navigating to home page');
         this.router.navigate(['/homePage']);
       },
       error: (errorMessage) => {

@@ -19,10 +19,13 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private storiesService: StoriesService) {}
 
   ngOnInit(): void {
+    console.log('initializing home component');
     // this.storiesService.fetchDummyData();
     if (this.storiesService.storiesInitialized) {
       this.yourStories = this.storiesService.getStories();
+      console.log('Got stories');
     } else {
+      // TODO I shouldn't have to fetch the stories again after the resolver
       this.storiesService.fetchStories().subscribe({
         next: (stories) => {
           this.yourStories = stories;
