@@ -55,6 +55,17 @@ export class StoriesService {
     return this.stories;
   }
 
+  public updateAllStories() {
+    this.http
+      .put(
+        'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json',
+        this.stories
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+
   public fetchDummyData() {
     const storiesObservable = this.ajaxHelper.initializeDummyData();
 

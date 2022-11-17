@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth-service/auth.service';
+import { StoriesService } from '../services/stories/stories.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,10 @@ export class NavComponent implements OnInit, OnDestroy {
   public isAuthenticated: boolean = false;
   public userEmail: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private storiesService: StoriesService
+  ) {}
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
@@ -21,6 +25,10 @@ export class NavComponent implements OnInit, OnDestroy {
         this.userEmail = user.email;
       }
     });
+  }
+
+  onSaveData() {
+    this.storiesService.updateAllStories();
   }
 
   ngOnDestroy(): void {
