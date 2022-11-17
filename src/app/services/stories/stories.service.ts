@@ -86,6 +86,7 @@ export class StoriesService {
       }),
       tap((stories) => {
         console.log('Received stories');
+        console.log(stories);
         this.setStories(stories);
       })
     );
