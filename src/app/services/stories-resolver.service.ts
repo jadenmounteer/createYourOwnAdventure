@@ -20,6 +20,10 @@ export class StoriesResolverService implements Resolve<Story[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Story[] | Observable<Story[]> | Promise<Story[]> {
-    return this.storiesService.fetchStories();
+    const stories = this.storiesService.getStories();
+    if (stories.length === 0) {
+      return this.storiesService.fetchStories();
+    }
+    return stories;
   }
 }
