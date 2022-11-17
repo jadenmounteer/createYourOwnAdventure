@@ -5,9 +5,7 @@ import { Story } from 'src/app/types/types';
 import { AjaxHelperService } from '../ajax-helper/ajax-helper.service';
 import { AuthService } from '../auth-service/auth.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class StoriesService {
   storiesChanged = new Subject<Story[]>();
   startedEditing = new Subject<number>();
@@ -77,8 +75,6 @@ export class StoriesService {
   }
 
   public fetchStories() {
-    console.log('Fetching data');
-
     return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {
@@ -93,7 +89,6 @@ export class StoriesService {
   }
 
   private setStories(stories: Story[]) {
-    console.log('Setting stories to be stored in the service.');
     this.stories = stories;
     this.storiesInitialized = true;
     this.storiesChanged.next(this.stories.slice());

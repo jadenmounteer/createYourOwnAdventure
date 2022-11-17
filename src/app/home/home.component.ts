@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // this.storiesService.fetchDummyData();
     if (this.storiesService.storiesInitialized) {
+      console.log('getting stories in home');
       this.yourStories = this.storiesService.getStories();
     } else {
       // TODO I shouldn't have to fetch the stories again after the resolver

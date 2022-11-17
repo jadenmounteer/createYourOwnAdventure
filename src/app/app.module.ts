@@ -27,6 +27,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { StoriesResolverService } from './services/stories-resolver.service';
+import { StoriesService } from './services/stories/stories.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -76,6 +77,7 @@ const appRoutes: Routes = [
     FontAwesomeModule,
     HttpClientModule,
   ],
+  providers: [StoriesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
