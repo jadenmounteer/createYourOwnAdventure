@@ -101,10 +101,10 @@ export class StoriesService {
   private setStoryArrayToEmptyStory(): Story[] {
     return [
       {
-        id: undefined,
-        userID: undefined,
-        title: undefined,
-        description: undefined,
+        id: 0,
+        userID: 0,
+        title: 'Sample Story',
+        description: 'This is an example of a story',
         draft: false,
         pages: [],
       },
