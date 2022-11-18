@@ -37,6 +37,8 @@ export class StoriesService {
   }
 
   public addStory(story: Story) {
+    console.log('Adding story');
+    console.log(this.stories);
     this.stories.push(story);
     // TODO We should probably only update one story, but this works for now.
     this.updateAllStories();
@@ -75,20 +77,38 @@ export class StoriesService {
   }
 
   public fetchStories() {
+    console.log('Fetching stories');
     return this.http
       .get<Story[]>(
         `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/${this.userID}.json`
       )
       .pipe(
         tap((stories) => {
+          console.log('Fetched stories');
           this.setStories(stories);
         })
       );
   }
 
   private setStories(stories: Story[]) {
+    if (!stories) {
+      stories = this.setStoryArrayToEmptyStory();
+    }
     this.stories = stories;
     this.storiesInitialized = true;
+  }
+
+  private setStoryArrayToEmptyStory(): Story[] {
+    return [
+      {
+        id: undefined,
+        userID: undefined,
+        title: undefined,
+        description: undefined,
+        draft: false,
+        pages: [],
+      },
+    ];
   }
 
   public fetchDummyData() {
