@@ -22,9 +22,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.storiesService.fetchDummyData();
-    if (this.storiesService.storiesInitialized) {
-      this.yourStories = this.storiesService.getStories();
+    if (!this.storiesService.storiesInitialized) {
+      this.storiesService.fetchStories();
     }
+    this.yourStories = this.storiesService.getStories();
   }
 
   public onDeleteStory(story: Story) {

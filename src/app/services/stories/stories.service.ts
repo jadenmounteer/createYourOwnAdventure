@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { exhaustMap, Subject, take, tap } from 'rxjs';
+import { Subject, tap } from 'rxjs';
 import { Story } from 'src/app/types/types';
 import { AjaxHelperService } from '../ajax-helper/ajax-helper.service';
 import { AuthService } from '../auth-service/auth.service';
@@ -10,12 +10,16 @@ export class StoriesService {
   startedEditing = new Subject<number>();
   private stories: Story[] = new Array<Story>();
   public storiesInitialized: boolean = false;
+  private userID: string = '';
 
   constructor(
     private ajaxHelper: AjaxHelperService,
     private http: HttpClient,
     private authService: AuthService
-  ) {}
+  ) {
+    const userData = JSON.parse(String(localStorage.getItem('userData')));
+    this.userID = userData.id;
+  }
 
   public getStories() {
     return this.stories.slice();
@@ -62,7 +66,7 @@ export class StoriesService {
   public updateAllStories() {
     this.http
       .put(
-        'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json',
+        `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/${this.userID}.json`,
         this.stories
       )
       .subscribe((response) => {
@@ -73,7 +77,7 @@ export class StoriesService {
   public fetchStories() {
     return this.http
       .get<Story[]>(
-        'https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/stories.json'
+        `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/${this.userID}.json`
       )
       .pipe(
         tap((stories) => {
