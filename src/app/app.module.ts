@@ -29,26 +29,31 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { StoriesResolverService } from './services/stories-resolver.service';
 import { StoriesService } from './services/stories/stories.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
   {
     path: 'homePage',
     component: HomeComponent,
+    canActivate: [AuthGuard],
     resolve: [StoriesResolverService], // Resolver runs to make sure observable ends and data is loaded before route is loaded.
   },
   {
     path: 'createOrEditStory/:id',
     component: CreateOrEditStoryComponent,
+    canActivate: [AuthGuard],
     resolve: [StoriesResolverService],
   },
   {
     path: 'createOrEditStory', // Don't pass in an id to get to the create page
+    canActivate: [AuthGuard],
     component: CreateOrEditStoryComponent,
   },
   {
     path: 'readStory/:id',
     component: ReadStoryComponent,
+    canActivate: [AuthGuard],
     resolve: [StoriesResolverService],
   },
   {
