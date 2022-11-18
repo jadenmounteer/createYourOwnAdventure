@@ -27,6 +27,17 @@ export class HomeComponent implements OnInit {
     // }
     // this.storiesService.fetchStories();
     this.yourStories = this.storiesService.getStories();
+    this.removeSampleStory();
+  }
+
+  private removeSampleStory() {
+    let index = 0;
+    this.yourStories.forEach((story) => {
+      if (story.id === undefined) {
+        this.yourStories.splice(index, 1);
+        index++;
+      }
+    });
   }
 
   public onDeleteStory(story: Story) {

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Subject, tap } from 'rxjs';
 import { Story } from 'src/app/types/types';
 import { AjaxHelperService } from '../ajax-helper/ajax-helper.service';
-import { AuthService } from '../auth-service/auth.service';
 
 @Injectable()
 export class StoriesService {
@@ -12,11 +11,7 @@ export class StoriesService {
   public storiesInitialized: boolean = false;
   private userID: string = '';
 
-  constructor(
-    private ajaxHelper: AjaxHelperService,
-    private http: HttpClient,
-    private authService: AuthService
-  ) {
+  constructor(private ajaxHelper: AjaxHelperService, private http: HttpClient) {
     const userData = JSON.parse(String(localStorage.getItem('userData')));
     this.userID = userData.id;
   }
@@ -37,8 +32,6 @@ export class StoriesService {
   }
 
   public addStory(story: Story) {
-    console.log('Adding story');
-    console.log(this.stories);
     this.stories.push(story);
     // TODO We should probably only update one story, but this works for now.
     this.updateAllStories();
@@ -77,7 +70,6 @@ export class StoriesService {
   }
 
   public fetchStories() {
-    console.log('Fetching stories');
     return this.http
       .get<Story[]>(
         `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/${this.userID}.json`
@@ -88,6 +80,14 @@ export class StoriesService {
           this.setStories(stories);
         })
       );
+  }
+
+  public removeAllStories() {
+    let index = 0;
+    this.stories.forEach((story) => {
+      this.stories.splice(index, 1);
+      index++;
+    });
   }
 
   private setStories(stories: Story[]) {
@@ -101,7 +101,7 @@ export class StoriesService {
   private setStoryArrayToEmptyStory(): Story[] {
     return [
       {
-        id: 0,
+        id: undefined,
         userID: 0,
         title: 'Sample Story',
         description: 'This is an example of a story',

@@ -24,6 +24,7 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   public onLogout() {
+    // this.StoriesService.removeAllStories();
     this.authService.logout();
   }
 
