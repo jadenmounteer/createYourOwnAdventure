@@ -77,7 +77,7 @@ export class CreateOrEditStoryComponent implements OnInit {
     return;
   }
 
-  public onSubmit(storyForm: NgForm) {
+  public onSubmit(storyForm: NgForm, isDraft = false) {
     const value = storyForm.value;
     const title = value.title;
     let storyID = undefined;
@@ -93,11 +93,9 @@ export class CreateOrEditStoryComponent implements OnInit {
       userID: undefined,
       title: title,
       description: this.storyToEdit?.description,
-      draft: false,
+      draft: isDraft,
       pages: this.storyToEdit!.pages,
     };
-
-    // TODO Now I need to make the next page and choice text save.
 
     if (this.editMode) {
       this.storiesService.updateStory(this.storyID, newStory);
@@ -105,12 +103,6 @@ export class CreateOrEditStoryComponent implements OnInit {
       this.storiesService.addStory(newStory);
     }
     this.router.navigate([`homePage`]);
-  }
-
-  public onSaveDraft() {
-    console.log('Saving draft');
-    // TODO For some reason the form won't find the text area.
-    // I'll have to access the story to edit value
   }
 
   public onChangeTitle(): void {
