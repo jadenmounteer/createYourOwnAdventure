@@ -19,7 +19,8 @@ export interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiKey = environment.apiKey;
+  // private apiKey = environment.apiKey;
+  private apiKey = 'AIzaSyDn8j4BaTdv63f1xxvIpGL37h9Q6CSgMrQ';
   private initialUser = new User('', '', '', '');
   public user = new BehaviorSubject<User>(this.initialUser); // Behavior subjects give subscribers immediate access to the previous emitted value
   private tokenExpirationTimer: any;

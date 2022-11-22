@@ -76,7 +76,6 @@ export class StoriesService {
       )
       .pipe(
         tap((stories) => {
-          console.log('Fetched stories');
           this.setStories(stories);
         })
       );
