@@ -53,8 +53,6 @@ const appRoutes: Routes = [
   {
     path: 'readStory/:id',
     component: ReadStoryComponent,
-    canActivate: [AuthGuard],
-    resolve: [StoriesResolverService],
   },
   {
     path: 'auth',
