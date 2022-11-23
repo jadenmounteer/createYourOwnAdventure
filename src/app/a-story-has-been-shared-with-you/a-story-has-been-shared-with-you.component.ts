@@ -25,9 +25,14 @@ export class AStoryHasBeenSharedWithYouComponent implements OnInit {
       this.storyID = params['storyID'];
       this.userID = params['userID'];
     });
-    this.storiesService.fetchStories(String(this.userID)).subscribe();
+    this.storiesService.fetchStories(String(this.userID)).subscribe({
+      complete: () => {
+        this.storiesService.setSharedStory(Number(this.storyID));
+        this.sharedStory = this.storiesService.getSharedStory();
+      },
+    });
 
     // Test url
-    // http://localhost:4200/a-story-has-been-shared-with-you/xmkIWWJdqCfhV3d9vpW397uInRw1/1
+    // http://localhost:4200/a-story-has-been-shared-with-you/xmkIWWJdqCfhV3d9vpW397uInRw1/760
   }
 }

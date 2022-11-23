@@ -16,7 +16,6 @@ export class StoriesService {
     const userData = JSON.parse(String(localStorage.getItem('userData')));
     if (userData) {
       this.userID = userData.id;
-      console.log(this.userID);
     }
   }
 
@@ -92,7 +91,6 @@ export class StoriesService {
       )
       .pipe(
         tap((stories) => {
-          console.log(stories);
           this.setStories(stories);
         })
       );
