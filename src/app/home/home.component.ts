@@ -4,6 +4,8 @@ import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component'
 import { Story } from '../types/types';
 import { StoriesService } from '../services/stories/stories.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth-service/auth.service';
+import { User } from '../auth/user.model';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +20,13 @@ export class HomeComponent implements OnInit {
   public storyToDelete!: Story;
   public confirmModalMessage: string = '';
   public showAlert: boolean = false;
+  public user!: User;
 
-  constructor(private router: Router, private storiesService: StoriesService) {}
+  constructor(
+    private router: Router,
+    private storiesService: StoriesService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     // this.storiesService.fetchDummyData();
@@ -29,6 +36,7 @@ export class HomeComponent implements OnInit {
     // this.storiesService.fetchStories();
     this.yourStories = this.storiesService.getStories();
     this.removeSampleStory();
+    this.user = JSON.parse(String(localStorage.getItem('userData')));
   }
 
   private removeSampleStory() {
@@ -71,5 +79,15 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.showAlert = false;
     }, 5000);
+    const shareableLink = this.createShareableLink(story);
+    console.log(shareableLink);
+  }
+
+  private createShareableLink(story: Story): string {
+    // Dev
+    return `http://localhost:4200/a-story-has-been-shared-with-you/${this.user.id}/${story.id}`;
+
+    // Prod
+    // return `https://jadenmounteer.github.io/createYourOwnAdventure/a-story-has-been-shared-with-you/${this.user.id}/${story.id}`;
   }
 }
