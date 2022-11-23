@@ -30,6 +30,7 @@ import { StoriesResolverService } from './services/stories-resolver.service';
 import { StoriesService } from './services/stories/stories.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { AuthGuard } from './auth/auth.guard';
+import { AStoryHasBeenSharedWithYouComponent } from './a-story-has-been-shared-with-you/a-story-has-been-shared-with-you.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -58,6 +59,10 @@ const appRoutes: Routes = [
     path: 'auth',
     component: AuthComponent,
   },
+  {
+    path: 'a-story-has-been-shared-with-you/:userId/:storyId',
+    component: AStoryHasBeenSharedWithYouComponent,
+  },
 ];
 @NgModule({
   declarations: [
@@ -71,6 +76,7 @@ const appRoutes: Routes = [
     LoginPageComponent,
     AuthComponent,
     LoadingSpinnerComponent,
+    AStoryHasBeenSharedWithYouComponent,
   ],
   imports: [
     BrowserModule,
