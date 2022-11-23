@@ -10,6 +10,7 @@ export class StoriesService {
   private stories: Story[] = new Array<Story>();
   public storiesInitialized: boolean = false;
   private userID: string = '';
+  private sharedStory: Story | undefined;
 
   constructor(private ajaxHelper: AjaxHelperService, private http: HttpClient) {
     const userData = JSON.parse(String(localStorage.getItem('userData')));
@@ -18,6 +19,18 @@ export class StoriesService {
 
   public getStories() {
     return this.stories.slice();
+  }
+
+  public setSharedStory(storyId: number) {
+    this.stories.forEach((story) => {
+      if (story.id === storyId) {
+        this.sharedStory = story;
+      }
+    });
+  }
+
+  public getSharedStory() {
+    return this.sharedStory;
   }
 
   public getStory(storyId: number | undefined) {
@@ -69,10 +82,10 @@ export class StoriesService {
       });
   }
 
-  public fetchStories() {
+  public fetchStories(userID: string = this.userID) {
     return this.http
       .get<Story[]>(
-        `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/${this.userID}.json`
+        `https://create-your-own-adventur-a10c1-default-rtdb.firebaseio.com/${userID}.json`
       )
       .pipe(
         tap((stories) => {
