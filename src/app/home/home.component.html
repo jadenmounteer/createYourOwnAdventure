@@ -6,8 +6,8 @@
 ></app-confirm-modal>
 
 <div class="alert alert-info" role="alert" *ngIf="showAlert">
-  <strong>Link copied!</strong> A shareable link has been copied to your
-  clipboard.
+  <strong>Share this link with anyone so they can read your story! </strong>
+  <a [href]="shareableLink" target="_blank">{{ shareableLink }}</a>
 </div>
 
 <h1>Your Stories</h1>

@@ -4,7 +4,6 @@ import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component'
 import { Story } from '../types/types';
 import { StoriesService } from '../services/stories/stories.service';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../services/auth-service/auth.service';
 import { User } from '../auth/user.model';
 
 @Component({
@@ -21,12 +20,9 @@ export class HomeComponent implements OnInit {
   public confirmModalMessage: string = '';
   public showAlert: boolean = false;
   public user!: User;
+  public shareableLink: string = '';
 
-  constructor(
-    private router: Router,
-    private storiesService: StoriesService,
-    private authService: AuthService
-  ) {}
+  constructor(private router: Router, private storiesService: StoriesService) {}
 
   ngOnInit(): void {
     // this.storiesService.fetchDummyData();
@@ -75,12 +71,11 @@ export class HomeComponent implements OnInit {
   }
 
   public shareStory(story: Story) {
+    this.shareableLink = this.createShareableLink(story);
     this.showAlert = true;
     setTimeout(() => {
       this.showAlert = false;
-    }, 5000);
-    const shareableLink = this.createShareableLink(story);
-    console.log(shareableLink);
+    }, 10000);
   }
 
   private createShareableLink(story: Story): string {
