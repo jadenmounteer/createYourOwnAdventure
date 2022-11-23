@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Story } from '../types/types';
 import { StoriesService } from '../services/stories/stories.service';
 
@@ -15,7 +15,8 @@ export class AStoryHasBeenSharedWithYouComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private storiesService: StoriesService
+    private storiesService: StoriesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +34,9 @@ export class AStoryHasBeenSharedWithYouComponent implements OnInit {
 
     // Test url
     // http://localhost:4200/a-story-has-been-shared-with-you/xmkIWWJdqCfhV3d9vpW397uInRw1/760
+  }
+
+  public readStory() {
+    this.router.navigate([`/readStory/${this.storyID}`]);
   }
 }
