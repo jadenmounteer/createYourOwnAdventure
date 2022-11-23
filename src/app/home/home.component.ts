@@ -55,8 +55,6 @@ export class HomeComponent implements OnInit {
     if (indexOfStory > -1) {
       this.yourStories = this.storiesService.deleteStory(indexOfStory);
     }
-
-    // TODO delete from the db as well.
   }
 
   public readStory(story: Story) {
