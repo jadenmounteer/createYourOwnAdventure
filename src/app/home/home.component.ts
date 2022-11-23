@@ -80,9 +80,9 @@ export class HomeComponent implements OnInit {
 
   private createShareableLink(story: Story): string {
     // Dev
-    return `http://localhost:4200/a-story-has-been-shared-with-you/${this.user.id}/${story.id}`;
+    // return `http://localhost:4200/a-story-has-been-shared-with-you/${this.user.id}/${story.id}`;
 
     // Prod
-    // return `https://jadenmounteer.github.io/createYourOwnAdventure/a-story-has-been-shared-with-you/${this.user.id}/${story.id}`;
+    return `https://jadenmounteer.github.io/createYourOwnAdventure/a-story-has-been-shared-with-you/${this.user.id}/${story.id}`;
   }
 }
