@@ -7,12 +7,13 @@ declare var $: any; // For Jquery
   templateUrl: './story-card.component.html',
   styleUrls: ['./story-card.component.scss'],
 })
-export class StoryCardComponent implements OnInit {
+export class StoryCardComponent {
   @Input()
   story!: Story;
   @Output() deleteStory = new EventEmitter();
   @Output() editStory = new EventEmitter();
   @Output() readStory = new EventEmitter();
+  @Output() shareStory = new EventEmitter();
 
   public copiedLink: boolean = false;
 
@@ -23,12 +24,12 @@ export class StoryCardComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
   onShare() {
     this.copiedLink = true;
     setTimeout(() => {
       this.copiedLink = false;
     }, 5000);
+
+    this.shareStory.emit();
   }
 }

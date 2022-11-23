@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('confirmModal') confirmModal!: ConfirmModalComponent;
   public storyToDelete!: Story;
   public confirmModalMessage: string = '';
+  public showAlert: boolean = false;
 
   constructor(private router: Router, private storiesService: StoriesService) {}
 
@@ -63,5 +64,12 @@ export class HomeComponent implements OnInit {
 
   public createNewStory() {
     this.router.navigate(['/createOrEditStory']);
+  }
+
+  public shareStory(story: Story) {
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 5000);
   }
 }

@@ -5,6 +5,11 @@
   (confirmed)="confirmedDelete()"
 ></app-confirm-modal>
 
+<div class="alert alert-info" role="alert" *ngIf="showAlert">
+  <strong>Link copied!</strong> A shareable link has been copied to your
+  clipboard.
+</div>
+
 <h1>Your Stories</h1>
 
 <div *ngIf="yourStories.length > 0">
@@ -15,6 +20,7 @@
         (deleteStory)="onDeleteStory(story)"
         (editStory)="editStory(story)"
         (readStory)="readStory(story)"
+        (shareStory)="shareStory(story)"
       ></app-story-card>
     </div>
   </div>
