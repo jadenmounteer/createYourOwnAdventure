@@ -12,7 +12,6 @@ export class AStoryHasBeenSharedWithYouComponent implements OnInit {
   public sharedStory: Story | undefined;
   public storyID: number | undefined;
   public userID: number | undefined;
-  private stories: Story[] = new Array<Story>();
 
   constructor(
     private route: ActivatedRoute,
