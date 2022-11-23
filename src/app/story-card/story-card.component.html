@@ -31,9 +31,16 @@
     <button type="button" class="btn btn-warning" (click)="editStory.emit()">
       Edit
     </button>
-    <button type="button" class="btn btn-info" *ngIf="!story.draft">
+    <button
+      type="button"
+      class="btn btn-info"
+      [ngClass]="{ 'btn-info': !copiedLink, 'btn-secondary': copiedLink }"
+      *ngIf="!story.draft"
+      (click)="onShare()"
+    >
       Share
     </button>
+
     <button type="button" class="btn btn-danger" (click)="deleteStory.emit()">
       Delete
     </button>

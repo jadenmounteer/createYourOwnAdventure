@@ -14,6 +14,8 @@ export class StoryCardComponent implements OnInit {
   @Output() editStory = new EventEmitter();
   @Output() readStory = new EventEmitter();
 
+  public copiedLink: boolean = false;
+
   constructor() {
     // Initialize the tooltips using jquery. Not sure why, but we have to do this.
     $(function () {
@@ -22,4 +24,11 @@ export class StoryCardComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onShare() {
+    this.copiedLink = true;
+    setTimeout(() => {
+      this.copiedLink = false;
+    }, 5000);
+  }
 }
