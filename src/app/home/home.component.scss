@@ -6,7 +6,6 @@
   flex-wrap: wrap;
 }
 
-.alert {
-  // position: absolute;
-  // z-index: -1;
+.alert a {
+  word-break: break-all;
 }
