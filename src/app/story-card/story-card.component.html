@@ -1,8 +1,9 @@
-<div class="card text-white bg-primary mb-3" style="max-width: 20rem">
+<div class="card text-white bg-primary mb-3" style="width: 21.7rem">
   <div class="card-body">
     <span class="badge rounded-pill bg-secondary" *ngIf="story.draft"
       >Draft</span
     >
+    <!-- <span class="badge bg-info" *ngIf="!story.draft">Share Story</span> -->
     <h4 class="card-title">{{ story.title }}</h4>
     <p class="card-text">{{ story.description }}</p>
   </div>
@@ -29,6 +30,9 @@
     </button>
     <button type="button" class="btn btn-warning" (click)="editStory.emit()">
       Edit
+    </button>
+    <button type="button" class="btn btn-info" *ngIf="!story.draft">
+      Share
     </button>
     <button type="button" class="btn btn-danger" (click)="deleteStory.emit()">
       Delete

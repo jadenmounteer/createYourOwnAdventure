@@ -1,8 +1,9 @@
 @import '../scss/main.scss';
 
 .story-footer {
-  display: flex;
+  display: inline-flex;
   gap: 10px;
+  // flex-wrap: wrap;
 }
 
 .card-body {
@@ -11,6 +12,7 @@
 }
 
 .story-footer {
+  display: flex;
   padding: 16px;
 }
 
