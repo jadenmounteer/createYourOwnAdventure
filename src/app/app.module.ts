@@ -60,7 +60,7 @@ const appRoutes: Routes = [
     component: AuthComponent,
   },
   {
-    path: 'a-story-has-been-shared-with-you/:userId/:storyId',
+    path: 'a-story-has-been-shared-with-you/:userID/:storyID',
     component: AStoryHasBeenSharedWithYouComponent,
   },
 ];

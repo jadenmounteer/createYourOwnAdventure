@@ -26,7 +26,7 @@ export class ReadStoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.previousPages.clearAll();
-    // Get the story ID if we are editing
+    // Get the story ID
     this.route.params.subscribe((params: Params) => {
       this.storyID = params['id'];
     });

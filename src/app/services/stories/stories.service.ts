@@ -14,7 +14,10 @@ export class StoriesService {
 
   constructor(private ajaxHelper: AjaxHelperService, private http: HttpClient) {
     const userData = JSON.parse(String(localStorage.getItem('userData')));
-    this.userID = userData.id;
+    if (userData) {
+      this.userID = userData.id;
+      console.log(this.userID);
+    }
   }
 
   public getStories() {
@@ -89,6 +92,7 @@ export class StoriesService {
       )
       .pipe(
         tap((stories) => {
+          console.log(stories);
           this.setStories(stories);
         })
       );
